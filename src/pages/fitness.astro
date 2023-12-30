@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const commandments = [
+  {
+    title: "Fitness is good for you",
+    lesson:
+      "It's good for the body, it's good for your mind. So find a way to exercise at least 4x/week.",
+  },
+  {
+    title: "Get going",
+    lesson:
+      "Don't worry about finding the perfect program. It's better to start and course correct than do endless research.",
+  },
+  {
+    title: "Little > nothing",
+    lesson:
+      "Even small amounts add up to noticeable progress. Don't underestimate how much better 10 minutes is than doing nothing.",
+  },
+  {
+    title: "Pick when to go hard",
+    lesson:
+      "There's a time and place for tough workouts. Health and longevity matter more so don't beat yourself up too much.",
+  },
+  {
+    title: "Move well",
+    lesson: "Don't chase numbers over form and control. Learn the basics well.",
+  },
+  {
+    title: "Value mobility",
+    lesson: "This has many knock-on positives and is key to 'moving well'.",
+  },
+  {
+    title: "Be wary of shortcuts",
+    lesson:
+      "The exercise industry has many gurus selling methods and products. There is no substitute for simple workouts, sleep and balanced meals.",
+  },
+  {
+    title: "Commitment > motivation",
+    lesson: "Motivation comes and goes. Commitments usually stick better. ",
+  },
+];
+---
+
+<Layout title="LOD - Links">
+  <main>
+    <h2>Fitness</h2>
+    <hr />
+    <p>
+      I've been exercising 6 days a week since I was 15. During periods of more
+      serious training I did two-a-days. This means I've done over &gt;7k
+      training sessions and consequently have formed some opinions on how to get
+      started how to improve and what really matters. My first startup <a
+        href="https://squaddy.app">Squaddy</a
+      > is a fitness app so it's a subject close to my heart.
+    </p>
+    <h3>Personal bests</h3>
+    <table>
+      <tr>
+        <th>Exercise</th>
+        <th>Score</th>
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>5k run</td>
+        <td>18:52</td>
+        <td>26</td>
+      </tr>
+      <tr>
+        <td>2k row</td>
+        <td>06:11</td>
+        <td>19</td>
+      </tr>
+      <tr>
+        <td>Back squat</td>
+        <td>180kg</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>Deadlift</td>
+        <td>220kg</td>
+        <td>23</td>
+      </tr>
+      <tr>
+        <td>Snatch</td>
+        <td>90kg</td>
+        <td>31</td>
+      </tr>
+      <tr>
+        <td>Clean & Jerk</td>
+        <td>120kg</td>
+        <td>31</td>
+      </tr>
+    </table>
+    <h3>Fitness commandments</h3>
+    <ol>
+      {
+        commandments.map((comm) => (
+          <li>
+            <strong class="command-title">{comm.title}:</strong>
+            <span>{comm.lesson}</span>
+          </li>
+        ))
+      }
+    </ol>
+    <h3>Rowing - How it started</h3>
+    <p>
+      I was quite hopeless at exercise as a kid. I had asthma growing up and
+      would get tired very easily. I hated the heavy feeling on my lungs when I
+      pushed myself and gave up if it didn't come easy.
+    </p>
+    <p>
+      When I turned 16 I got into rowing. Like other sports I'd tried I wasn't
+      enthused and wanted to quit but my coaches and teammastes insisted I stuck
+      at it. Why did I listen? Rowing's builds a unique level of cameraderie.
+      You go out onto the water as a unit, if you don't pull your weight, the
+      whole boat fails. It was the first experience I had at working towards
+      anything and I didn't want to let everyone down.
+    </p>
+    <p>
+      The more training I put in, the faster I got. This was the first time I
+      made the connection between effort and results. Before then I believed in
+      'natural talent' and assumed if I wasn't good, I couldn't improve. Rowing
+      built my faith in 'the process,' which I took this into my studies and my
+      career. It was a commitment I badly needed. It changed my life and formed
+      the cornerstone for most success I've had since.
+    </p>
+    <h3>Triathlon - Escape from the weightroom</h3>
+    <h3>CrossFit - Embrace the chaos</h3>
+    <h3>Early middle age - choosing my own path</h3>
+  </main>
+</Layout>
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  ol {
+    padding-left: 1rem;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+  .command-title {
+    color: seagreen;
+  }
+</style>
