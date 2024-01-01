@@ -1,0 +1,14 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title="Book">
+  <main>
+    <p><a href="/books">&lt;-- Back to books</a></p>
+    <h3>{frontmatter.title}</h3>
+    <p>{frontmatter.author}</p>
+    <hr />
+    <slot />
+  </main>
+</Layout>
