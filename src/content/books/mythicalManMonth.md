@@ -42,4 +42,10 @@ Interesting stuff but I think his report for the "Defense Science Board" is a be
 
 16. Rarely will someone lie about milestone progress, if the milestone is so sharp that he can't deceive himself.
 
+### No silver bullet
+
+17. As we look to the horizon of a decade hence, we see no silver bullet. There is no single development, in either technology or management technique, which by itself promises even one order of magnitude improvement in productivity, in reliability, in simplicity.
+
+18. I believe the hard part of building software to be the specification, design, and testing of this conceptual construct, not the labor of representing it and testing the fidelity of the representation. We still make syntax errors, to be sure; but they are fuzz compared to the conceptual errors in most systems.
+
 More to come.
