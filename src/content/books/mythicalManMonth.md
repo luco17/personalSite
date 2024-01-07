@@ -48,4 +48,30 @@ Interesting stuff but I think his report for the "Defense Science Board" is a be
 
 18. I believe the hard part of building software to be the specification, design, and testing of this conceptual construct, not the labor of representing it and testing the fidelity of the representation. We still make syntax errors, to be sure; but they are fuzz compared to the conceptual errors in most systems.
 
-More to come.
+19. Enthusiasm jumps when there is a running system, even a simple one. Efforts redouble when the first picture from a new graphics software system appears on the screen, even if it is only a rectangle... I find that teams can grow much more complex entities in four months than they can build.
+
+### Back to MMM
+
+20. The programming project converges more slowly the nearer one gets to the end, whereas one expects it to converge faster as one approaches the end.
+
+21. The builder has the creative responsibility for implementation; the architect only suggests.
+
+22. The purpose of organization is to reduce the amount of communication and coordination necessary.
+
+23. The act of writing requires hundreds of mini-decisions, and it is the existence of these that distinguishes clear, exact policies from fuzzy ones.
+
+24. Delivering the first system, the throwaway, to users will buy time, but only at the cost of agony for the user, distraction for the builders supporting it while they do the redesign, and a bad reputation for the product that will be hard to live down. (see point 13.)
+
+25. Maintenance cost is strongly affected by the number of users. More users find more bugs.
+
+26. System debugging, like astronomy, has always been done chiefly at night.
+
+27. "Many, many failures concern exactly those aspects that were never quite specified." ~ Vyssotsky (pinch of salt here, see over-specification in Shape Up [link](https://basecamp.com/shapeup/1.3-chapter-04)).
+
+28. Chronic schedule slippage is a morale-killer.
+
+29. Software development, in contrast to manufacturing, remains inherently labor-intensive.
+
+30. It is much more difficult to design a general-purpose tool than it is to design a special-purpose tool, precisely because one has to assign weights to the differing needs of the diverse users.
+
+31. The appeal of proposed features is evident at the outset; the performance penalty is evident only as system testing proceeds.
