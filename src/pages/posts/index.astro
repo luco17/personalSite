@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+const allPosts = await getCollection("posts");
+---
+
+
+<Layout title="LOD - Posts">
+  <main>
+    <h2>Posts</h2>
+    <hr />
+    <ul>
+      {
+        allPosts.map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  ul {
+    padding-left: 1rem;
+  }
+
+  li {
+    padding: 4px 0;
+  }
+
+  .author {
+    font-size: 0.8rem;
+    color:darkslategrey;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .author {
+      color:ghostwhite;
+    }
+</style>

@@ -10,6 +10,15 @@ const bookCollection = defineCollection({
   }),
 });
 
+const postCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+  }),
+});
+
 export const collections = {
   books: bookCollection,
+  posts: postCollection,
 };

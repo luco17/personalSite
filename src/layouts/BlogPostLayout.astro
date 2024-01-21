@@ -1,0 +1,14 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title="Lucien O ~ Posts">
+  <main>
+    <p><a href="/books">&lt;-- Back to posts</a></p>
+    <h3>{frontmatter.title}</h3>
+    <p>{frontmatter.date.toDateString()}</p>
+    <hr />
+    <slot />
+  </main>
+</Layout>
