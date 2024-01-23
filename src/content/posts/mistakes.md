@@ -7,7 +7,7 @@ date: 2024-01-15
 
 This post is about the biggest mistakes I made building my first startup. They are the best education I've had in how to build and market useful software.
 
-### How it's gone
+## Background
 
 Our app, [Squaddy](https://squaddy.app),[^1] lets you track and share workouts. Think Strava for strength training but with more powerful group features. As of today it has ~20k downloads, ~100 subscribers and grows at ~1.2% per week. We've done no ads other than a two month Insta ads trial. Here are some stats that illustrate the trials of getting it this far:
 
@@ -75,16 +75,15 @@ In future I’ll look to get a good founding team of three in place and then gro
 
 Squaddy v1 had a feature set that I thought could be sold to ordinary folks training together (b2c) as well as PTs and gyms (b2b). Similar to mistake 1, these audiences want different features and respond to different marketing strategies. Most difficult to square are the differences in pricing models. Doing both created a big mess and we pivoted away from it with Squaddy v2 but only after burning time, cash and enthusiasm.
 
-## Being too clever on the tech
+### #6. Being too clever on the tech
 
-The back-end of our first product was built with a serverless architecture and fashionable back and front ends. It was hard to debug, had a mediocre dev experience and generally slowed us down. These problems were compounded by hiring too many engineers who had to be onboarded to the stack. At one point we had 5! Madness. Big cash burner. 
+The back-end of our first product was built with a serverless architecture and fashionable back and front ends. It was hard to debug, had a mediocre dev experience and generally slowed us down. These problems were compounded by hiring too many engineers who had to be onboarded to the stack. At one point we had 5! Madness. Big cash burner.
 
 We course corrected with Squaddy by using architecture and frameworks we were familiar with and we’ve never moved faster than with just two engineers.
 
-## V2/V3 grab bags
+### #7. V2/V3 grab bags
 
 We ditched a huge amount of the code and all the branding for V1 to do V2. In retrospect we should have modified V1 rather than changing all the branding etc. Cost a bomb and had minimal short/mid-term impact.
 
 [^2]: These things did not all overlap, there were phases of higher and lower headcount.
 [^1]: Squaddy was launched in September 2022 after a major pivot in winter 2021 and a minor pivot in Easter 2022. Our first idea was called "The Workout Projektt" (Projektt).
-
