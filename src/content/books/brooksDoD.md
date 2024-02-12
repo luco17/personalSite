@@ -1,7 +1,7 @@
 ---
 title: "Defense Science Board: Software production"
 author: "Fred Brooks"
-date: 2020-08-26T13:40:55+01:00
+date: 2023-12-01
 link: true
 ---
 

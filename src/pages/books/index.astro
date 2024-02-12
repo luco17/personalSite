@@ -13,7 +13,9 @@ const allBooks = await getCollection("books");
     <hr />
     <ul>
       {
-        allBooks.map((book) => (
+        allBooks
+        .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+        .map((book) => (
           <li>
             {book.data.link ? (
               <a href={`/books/${book.slug}/`}>{book.data.title}</a><span class="author"> - {book.data.author}</span>
