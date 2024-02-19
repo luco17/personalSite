@@ -9,7 +9,7 @@ This post is about the biggest mistakes I made building my first startup. They a
 
 ## Background
 
-Our app, [Squaddy](https://squaddy.app),[^1] lets you track and share workouts. Think Strava for strength training but with more powerful group features. As of today it has ~20k downloads, ~100 subscribers and grows at ~1.2% per week. We've done no ads other than a two month Insta ads trial. Here are some stats that illustrate the trials of getting it this far:
+Our app, [Squaddy](https://squaddy.app),[^1] lets you track and share workouts. Think Strava for strength training but with more powerful group features. As of today it has ~20k downloads, ~100 subscribers and grows at ~1.2% per week. We've done no ads other than a two month Insta ads trial. Here are some stats that show the trials of getting it this far:
 
 - Started work in March 2020
 - Spent £150k ($190k) of savings
@@ -23,13 +23,13 @@ Our app, [Squaddy](https://squaddy.app),[^1] lets you track and share workouts. 
 
 ### #1. Aiming too wide
 
-‘Make a product that appeals to many people to maximise your potential market.’ This seductively simple statement fooled me twice. Here’s what I got wrong:
+‘Make a product that appeals to many people to maximise your potential market.’ This idea fooled me twice; here’s what I got wrong:
 
 To me, broad appeal meant attracting lots of fitness niches, so I interviewed triathletes, powerlifters, bodybuilders, crossfitters, etc. Each niche had their own problems and feature requests but instead of recognising a signal to refine our audience, I saw more opportunity.
 
-The problems became evident when trying to turn this mish-mash of requests into a coherent product. Our backlog, test surface and engineering bills all grew. This increased mass slowed my decision making. Questions like ‘how do we display content on the home page’ became tougher when trying to please multiple communities. The UI grew more complicated.
+Problems surfaced when turning this mix of user problems into a coherent product. Our backlog, test surface and engineering bills all grew. This increased mass slowed my decision making. Questions like ‘how do we display content on the home page’ became tougher when trying to please multiple communities. The UI grew more complicated.
 
-It also negatively impacted marketing. In trying to appeal to many niches, each of whom had their own workouts, influencers and brands, we struggled create content that resonated with anyone. As an early stage company you have to have a clear voice to stand out, you can’t do that with platitudes.
+It also negatively impacted marketing. In trying to appeal to many niches, each of whom had their own workouts, influencers and brands, we struggled to create content that resonated with anyone. Early stage companies need a clear voice to stand out, it can’t be done with platitudes.
 
 Focusing on a niche would have given us a smaller, more complete set of user problems, a correspondingly tighter feature set and helped shape a coherent marketing strategy.
 
@@ -57,13 +57,13 @@ Fred Brooks captured this really well:
 
 > "The appeal of proposed features is evident at the outset; the performance penalty is evident only as system testing proceeds."
 
-This was the first software project where I’d had a totally blank canvas. I wanted to create a small, useful and robust MVP. Thing is, my version of ‘small’ should have been much smaller. Over the course of the project we undertook two big pivots i.e. three big product builds. Each one took 4-6 months and each has features that were either removed or have had no impact.
+This was the first software project where I had a totally blank canvas. I wanted to create a small, useful and robust MVP. Thing is, my version of ‘small’ should have been much smaller. Over the course of the project we undertook two big pivots which meant three big product builds. Each one took 4-6 months and each has features that were either removed or have had no impact.
 
 We pored over edge cases like “what happens if an admin kicks out another admin” when the admin functionality itself proved to be irrelevant and not worth building! This tendency was made worse because we were running scrum and I was making product decisions on the fly in refinement sessions. It wasn’t until I discovered [Shape Up](https://basecamp.com/shapeup/1.1-chapter-02) that I managed to curb this tendency. It was destructive because it delayed launch, ballooned the test surface and burned cash.
 
 ### #4. Overhiring
 
-I’d read in a book something like “As a business owner your number one asset is time, so outsource the stuff you’re bad at and focus on what you’re good at to best maximise your time.” This seemed reasonable and I adopted it, but it was deeply flawed for these reasons:
+I’d read in a book something like “As a business owner your number one asset is time, so outsource the stuff you’re bad at and focus on what you’re good at to best maximise your time.” This seemed reasonable and I adopted it, but it was deeply flawed for three reasons:
 
 - I didn’t know enough about marketing or growth to hire well
 - Our cash burn grew
@@ -79,7 +79,7 @@ Squaddy v1 had a feature set that I thought could be sold to ordinary folks trai
 
 The back-end of our first product was built with a serverless architecture and fashionable back and front ends. It was hard to debug, had a mediocre dev experience and generally slowed us down. These problems were compounded by hiring too many engineers who had to be onboarded to the stack. At one point we had 5! Madness. Big cash burner.
 
-We course corrected with Squaddy by using architecture and frameworks we were familiar with and we’ve never moved faster than with just two engineers.
+We course corrected with Squaddy by using architecture and frameworks we were familiar with and we never moved faster than with just two engineers.
 
 ### #7. V2/V3 grab bags
 
