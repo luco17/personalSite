@@ -85,10 +85,70 @@ link: true
 
 39. Dr. Johnson: "Truth is hard to assimilate in any mind when opposed by interest".
 
-40. Beware of carefu procedures leading to overconfidence in outcomes.
+40. Beware of careful procedures leading to overconfidence in outcomes.
 
 41. "Your mistaken professors were too much influenced by "rational man" models of human behavior from economics and too little by "foolish man" models from psychology and real-world experience."
 
 42. "The ethical rule is from Samuel Johnson, who believed that maintenance of easily removable ignorance by a responsible officeholder was treacherous malfeasance in meeting moral obligation."
 
-43. ""
+43. "If you would persuade, appeal to interest and not to reason."
+
+44. "Berkshire's whole record has been achieved without paying one ounce of attention to the efficient-market theory in its hard form, and not one ounce of attention to the descendants of that idea, which came out of academic economics and went into corporate finance and morphed into such obscenities as the capital asset pricing model, which we also paid no attention to... One of the worst examples of what physics enby did to economics was cause adoption of hard-form efficient-market theory."
+
+45. "His trouble is his craving for false precision... so economics should always emulate physics' basic ethos, but its search for precision in physics-like formulas is almost always wrong in economics."
+
+46. In what circumstances can you raise the price and get more sales? Charlie gives the example where you pass a proporiton of the higher price to a broker, who is then incentivised to sell more for you: "You're bribing the broker to betray his client and put the client's money into the high-commission product. This has worked to produce at least a trillion dollars of mutual fund sales."
+
+47. "I'll go further: I say economic systems work better when there's an extreme reliability ethos. The traditional way to get a reliability ethos, at least in past generations in America, was through religion. The religions instilled guilt. We have a charming Irish Catholic priest in our neighborhood, and he loves to say, "Those old Jews may have invented guilt, but we perfected it." This guilt, derived from religion, has been a huge driver of a reliability ethos, which has been very helpful to economic outcomes for man."
+
+48. "It is not always recognized that to function best, morality should sometimes appear unfair, like most worldly outcomes. The craving for perfect fairness causes a lot of terrible problems in system function. Some systems should be made deliberately unfair to individuals because they'll be fairer on average for all of us. Thus, there can be virtue in apparent non-fairness. I frequently cite the example of having your career over in the Navy if your ship goes aground, even if it wasn't your fault. I say the lack of justice for the one guy who wasn't at fault is way more than made up by a greater justice for everybody when every captain of a ship always sweats blood to make sure the ship doesn't go aground."
+
+49. Keynes: "It's not bringing in the new ideas that's hard. It's getting rid of the old ones."
+
+50. "Well, luckily I had the idea at a very early age that the safest way to try to get what you want is to try to deserve what you want. It's such a simple idea. It's the golden rule. You want to deliver to the world what you would buy if you were on the other end."
+
+51. "I constantly see people rise in life who are not the smartest, sometimes not even the most diligent. But they are learning machines. They go to bed every night a little wiser than they were that morning. And boy, does that habit help, particularly when you have a long run ahead of you."
+
+52. "You can cause enormous offense by being right in a way that causes somebody else to lose face in his own discipline or hierarchy."
+
+53. "If you turn problems around into reverse, you often think better. For instance, if you want to help India, the question you should consider asking is not "How can I help India?" Instead, you should ask, "How can I hurt India?" You find what will do the worst damage and then try to avoid it."
+
+54. "If you're unreliable, it doesn't matter what your virtues are, you're going to crater immediately. So faithfully doing what you've engaged to do should be an automatic part of your conduct."
+
+55. "Generally speaking, envy, resentment, revenge, and self-pity are disastrous modes of thought. Self-pity can get pretty close to paranoia... Self-pity is always counterproductive. It's the wrong way to think. And when you avoid it you get a great advantage over everybody else, or almost everybody else, because self-pity is a standard response. And you can train yourself out of it."
+
+56. How a legal counsel should have appealed to a CEO: "Look, this is likely to erupt into something that will destroy you, take away your money, take away your status, grossly impair your reputation. My recommendation will prevent a likely disaster from which you can't recover."
+
+57. "Perverse associations are also to be avoided. You particularly want to avoid working directly under somebody you don't admire and don't want to be like."
+
+58. The arrangement of two chaps Charlie went into business with: "Two-man partnership," they said, "and divide everything equally. And whenever we're behind in our commitments to other people, we will both work 14 hours a day, seven days a week, until we're caught up." Well, needless to say that firm didn't fail, and my partners were widely admired. Simple, old-fashioned ideas like theirs are almost sure to provide a good outcome."
+
+59. "Another thing to cope with is that life is very likely to provide terrible blows, unfair blows. Some people recover and others don't. There I think the attitude of Epictetus helps guide one to the right reaction. He thought that every mischance in life, however bad, created an opportunity to behave well. He believed every mischance provided an opportunity to learn something useful, and one's duty was not to become immersed in self-pity but to utilize each terrible blow in a constructive fashion. His ideas were very sound, influencing the best of the Roman emperors, Marcus Aurelius and many others over many centuries."
+
+60. Cialdini's book (recommended by Charlie): [LINK](https://www.amazon.co.uk/Influence-Psychology-Robert-Cialdini-PhD/dp/006124189X)
+
+61. "The integrity of the Federal Express system requires that all packages be shifted rapidly among airplanes in one central airport each night. The system has no integrity for the customers if the night work shift can't accomplish its assignment fast. And Federal Express had one hell of a time getting the night shift to do the right thing. They tried moral suasion. They tried everything in the world without luck. And finally, somebody got the happy thought that it was foolish to pay the night shift by the hour when what the employer wanted was not maximized billable hours of employee service but fault-free, rapid performance of a particular task. Maybe, this person thought, if they paid the employees per shift and let all night shift employees go home when all the planes were loaded, the system would work better. And, lo and behold, that solution worked."
+
+62. "Never, ever, think about something else when you should be thinking about the power of incentives."
+
+63. "In my long life, I have never seen a management consultant's report that didn't end with the same advice: 'This problem needs more management consulting services.'"
+
+64. "Anti-gaming features constitute a huge and necessary part of almost all system design."
+
+65. "One corollary of inconsistency-avoidance tendency is that a person making big sacrifices in the course of assuming a new identity will intensify his devotion to the new identity. After all, it would be quite inconsistent behavior to make a large sacrifice for something that was no good. Thus civilization has invented many tough and solemn initiation ceremonies, often public in nature, that intensify new commitments made.
+
+    Tough initiation ceremonies can intensify bad conduct as well as good. The loyalty of the new made-man mafia member or of the military officer making the required blood oath of loyalty to Hitler was boosted through the triggering of inconsistency-avoidance tendency."
+
+66. "Franklin would often maneuvre that man into doing Franklin some unimportant favor, like lending Franklin a book. Thereafter, the man would admire and trust Franklin more because a non-admired and non-trusted Franklin would be inconsistent with the appraisal implicit in lending Franklin the book."
+
+67. Buffett: "It is not greed that drives the world but envy."
+
+68. "There is a famous passage somewhere in Tolstoy that illuminates the power of excessive self-regard tendency. According to Tolstoy, the worst criminals don't appraise themselves as all that bad. They come to believe either that 1) they didn't commit their crimes or 2) considering the pressures and disadvantages of their lives, it is understandable and forgivable that they behaved as they did and became what they became."
+
+69. "Deprival-superreaction tendency is also a huge contributor to ruin from the compulsion to gamble. First, it causes the gambler to have a passion to get even once he has suffered a loss, and the passion grows with the loss. Second, the most addictive forms of gambling provide a lot of near misses, and each one triggers deprival-superreaction tendency. Some slot machine creators are vicious in exploiting this weakness of man. Electronic machines enable these creators to produce a lot of meaningless bar-bar-lemon results that greatly increase play by fools who think they have very nearly won large rewards."
+
+70. "teenagers' parents usually learn more than they would like about teenagers' cognitive errors from social-proof tendency. This phenomenon was recently involved in a breakthrough by Judith Rich Harris, who demonstrated that super-respect by young people for their peers, rather than for parents or other adults, is ordained to some considerable extent by the genes of the young people. This makes it wise for parents to rely more on manipulating the quality of the peers than on exhortations to their own offspring."
+
+71. "Because both bad and good behavior are made contagious by social-proof tendency, it is highly important that human societies 1) stop any bad behavior before it spreads and 2) foster and display all good behavior."
+
+72. "It's a very important part of wise administration to keep prattling people pouring out twaddle far away from the serious work."
