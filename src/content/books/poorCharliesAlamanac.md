@@ -13,7 +13,7 @@ link: true
 
 4. Repeated many, many times and borrowed from Jacobi: "Invert, always invert."
 
-5. Charlie's son dies when Charlie is 29: "A friend remebers that Charlie would visit his dying son in the hospital and then walk the streets of Pasadena crying." Having a kid now, I can't imagine how awful it must have been and am amazed at those who get through the grief of losing a child.
+5. Charlie's son dies when Charlie is 29: "A friend remembers that Charlie would visit his dying son in the hospital and then walk the streets of Pasadena crying." Having a kid now, I can't imagine how awful it must have been and am amazed at those who get through the grief of losing a child.
 
 6. "Father’s ability to Chinese wall off the most intrusive distractions from whatever mental task he was engaged in... accounts as much as anything for his success."
 
@@ -33,7 +33,7 @@ link: true
 
 14. On specialisation (Charlie's talking about a travel magazine): "We'd have a travel magazine for business travel, so somebody would create one that was addressed solely at corporate travel departments... they didn't have to waste the ink and paper mailing out stuff that corporate travel departments weren't interested in reading. It was a more efficient system... Occasionally, scaling down and intensifying gives you the big advantage. Bigger is not always better."
 
-15. Sam Walton was pretty when he started his first store. On Sam Walton's rise: "You can say, 'Is this a nice way to behave?' Well, capitalism is a pretty brutal place. But I personally think the world is better for having Walmart. I mean you can idealise small town life, but I've spent a fair amount of time in small towns. And let me tell you - you shouldn't get too idealistic about all those businesses he destroyed. Plus, a lot of people who work at Walmart are very high grade, bouncy people who are raising nice children. I have no feeling that an inferiro culture destroyed a superior culture."
+15. Sam Walton was pretty old when he started his first store. On Sam Walton's rise: "You can say, 'Is this a nice way to behave?' Well, capitalism is a pretty brutal place. But I personally think the world is better for having Walmart. I mean you can idealise small town life, but I've spent a fair amount of time in small towns. And let me tell you - you shouldn't get too idealistic about all those businesses he destroyed. Plus, a lot of people who work at Walmart are very high grade, bouncy people who are raising nice children. I have no feeling that an inferior culture destroyed a superior culture."
 
 16. On the efficiency of looms in textiles: "He knew that the huge productivity increases that would come from a better machine introduced into the production of a commodity product would all go to the benefit of the buyers of the textiles... In all cases, the people who sell the machinery - and by and large, even the internal bureaucrats urging you to buy the equipment - show you projections with the amount you'll save at current prices with the new technology. However, they don't do the second stage of the analysis, which is to determine how much is going to stay home and how much is just going to flow through to the customer... So you keep buying things that will pay for themselves in three years. And after 20 years of doing it, somehow you've earned a return of only about 4% per annum."
 
@@ -41,7 +41,7 @@ link: true
 
 18. "it makes sense to load up on the very few good insights you have instead of pretending to know everything about everything at all times."
 
-19. "Anytime somebody offers you a tax shelter form her on in life, my advice would be don't buy it. In fact, anytime anybody offers you anything with a big commission and a 200 page prospectus, don't buy it."
+19. "Anytime somebody offers you a tax shelter from here on in life, my advice would be don't buy it. In fact, anytime anybody offers you anything with a big commission and a 200 page prospectus, don't buy it."
 
 20. Check out William Poundstone's "Fortune's Formula." [here](https://www.economist.com/media/globalexecutive/fortunes_formula_e.pdf)
 
@@ -61,7 +61,7 @@ link: true
 
 28. Jack Welch answering a q. about Apple "Jack, what did Apple do wrong?" - "I don't have any special competence that'd enable me to answer that question."
 
-29. "I try to get rid of people who always confidently answer questins about which they don't have any real knowledge."
+29. "I try to get rid of people who always confidently answer questions about which they don't have any real knowledge."
 
 30. On influencing: "Appealing to interest is likely to work better as a matter of human persuasion than appealing to anything else. That, again, is a powerful psychological principle with deep biological roots."
 
@@ -87,17 +87,17 @@ link: true
 
 40. Beware of careful procedures leading to overconfidence in outcomes.
 
-41. "Your mistaken professors were too much influenced by "rational man" models of human behavior from economics and too little by "foolish man" models from psychology and real-world experience."
+41. "Your mistaken professors were too much influenced by ‘rational man’ models of human behavior from economics and too little by ‘foolish man’ models from psychology and real-world experience."
 
 42. "The ethical rule is from Samuel Johnson, who believed that maintenance of easily removable ignorance by a responsible officeholder was treacherous malfeasance in meeting moral obligation."
 
 43. "If you would persuade, appeal to interest and not to reason."
 
-44. "Berkshire's whole record has been achieved without paying one ounce of attention to the efficient-market theory in its hard form, and not one ounce of attention to the descendants of that idea, which came out of academic economics and went into corporate finance and morphed into such obscenities as the capital asset pricing model, which we also paid no attention to... One of the worst examples of what physics enby did to economics was cause adoption of hard-form efficient-market theory."
+44. "Berkshire's whole record has been achieved without paying one ounce of attention to the efficient-market theory in its hard form, and not one ounce of attention to the descendants of that idea, which came out of academic economics and went into corporate finance and morphed into such obscenities as the capital asset pricing model, which we also paid no attention to... One of the worst examples of what physics envy did to economics was cause adoption of hard-form efficient-market theory."
 
 45. "His trouble is his craving for false precision... so economics should always emulate physics' basic ethos, but its search for precision in physics-like formulas is almost always wrong in economics."
 
-46. In what circumstances can you raise the price and get more sales? Charlie gives the example where you pass a proporiton of the higher price to a broker, who is then incentivised to sell more for you: "You're bribing the broker to betray his client and put the client's money into the high-commission product. This has worked to produce at least a trillion dollars of mutual fund sales."
+46. In what circumstances can you raise the price and get more sales? Charlie gives the example where you pass a proportion of the higher price to a broker, who is then incentivised to sell more for you: "You're bribing the broker to betray his client and put the client's money into the high-commission product. This has worked to produce at least a trillion dollars of mutual fund sales."
 
 47. "I'll go further: I say economic systems work better when there's an extreme reliability ethos. The traditional way to get a reliability ethos, at least in past generations in America, was through religion. The religions instilled guilt. We have a charming Irish Catholic priest in our neighborhood, and he loves to say, "Those old Jews may have invented guilt, but we perfected it." This guilt, derived from religion, has been a huge driver of a reliability ethos, which has been very helpful to economic outcomes for man."
 
