@@ -19,7 +19,7 @@ link: true
 
 6. Keng Swee writes a paper to the Defence Council on the value of the armed forces as a deterrent: "The war-making potential of a small, vigorous, well-educated and highly motivated population should never be underestimated." The plan took inspiration from Israel, "We thought it important for people in and outside of Singapore to now that despite our small population, we could mobilize a large fighting force at short notice."
 
-7. Resistance to soldiering is quite strong in the population. LKY and Keng Swee have to employ a series of measures to make it seem a prestigious and worthwhile career. One such measure is given enlistees in the Singapore Armed Forces (SAF) guaranteed full-time jobs. They only take the top 10% of those who register though to ward off duds who would sandbag once in. The program is expanded alter with top candidates being sent to top universities in Britain and the US.
+7. Resistance to soldiering is quite strong in the population. LKY and Keng Swee have to employ a series of measures to make it seem a prestigious and worthwhile career. One such measure is given enlistees in the Singapore Armed Forces (SAF) guaranteed full-time jobs. They only take the top 10% of those who register though to ward off duds who would sandbag once in. The program is expanded later with top candidates being sent to top universities in Britain and the US.
 
 8. In 1968, two Indonesian commandos set off a bomb in Singapore, killing three citizens. They are sentenced to hanging. Suharto intervenes directly to have the sentence changed to imprisonment. LKY's view: "If we yielded, then the rule of law not only within Singapore but between our neighbours and Singapore would become meaningless as we would always be open to pressure."
 
@@ -37,9 +37,9 @@ link: true
 
 14. Losing the British was a 20% knock to GDP. LKY was determined not to accept aid. He recounts a tale from Malta:
 
-> > "The Suez Canal had been closed... hence the dockyard in Malta was closed, but dockworkers on full pay were playing water polo in the dry dock which they had filled with water! I was shaken by their aid dependency. The BRitish had given fairly generous redundancy payments... This nurtured a sense of dependency, not a spirit of self-reliance."
+> > "The Suez Canal had been closed... hence the dockyard in Malta was closed, but dockworkers on full pay were playing water polo in the dry dock which they had filled with water! I was shaken by their aid dependency. The British had given fairly generous redundancy payments... This nurtured a sense of dependency, not a spirit of self-reliance."
 
-15. After much trial and error, LKY comes up with a two-pronged strategy. The first prong is influenced Israel. Faced with a more hostile environment than Singapore's, they managed to leap over their Arab neighbours who boycotted them, to trade with Europe and America. Hence Singapore had to bypass Malaysia and Indonesia (which were boycotting them) and open up trade with America, Europe and Japan by attracting their MNCs.
+15. After much trial and error, LKY comes up with a two-pronged strategy. The first prong is influenced by Israel. Faced with a more hostile environment than Singapore's, they managed to leap over their Arab neighbours who boycotted them, to trade with Europe and America. Hence Singapore had to bypass Malaysia and Indonesia (which were boycotting them) and open up trade with America, Europe and Japan by attracting their MNCs.
 
 16. "The accepted wisdom of development economists at the time was that MNCs were exploiters of cheap land, labour and materials... MNCs controlled technology and consumer preferences and formed alliances with their host governments to exploit the people and keep them down. Third World leaders believed this theory of neocolonialist exploitation, but Keng Swee and I were not impressed. We had a real life problem to solve and could not afford to be conscribed by any theory or dogma."
 
@@ -371,4 +371,34 @@ link: true
 
 ### Deng Xiaoping's China
 
-147.
+147. "He was the most impressive leader I had met. He was a five-footer, but a giant among men. At 74, when faced with an unpleasant truth, he was prepared to change his mind."
+
+148. "Every province of China is different in geography, economy, education, and standard of efficiency. The preoccupations of their governans are different."
+
+149. "I had assumed the communist system made for completed unified central control. This never was so in China... five words (The mountains are high, the emperor is far away), express the cynicism and skepticism of generations of the disaffected who have short changed the local authorities."
+
+150. "The quality of the people in charge of China is impressive... They have capacious minds, analytical and quick on the uptake."
+
+151. "Japan did not have nuclear capability, but it was possible that Japan would go it alone if the United States proved no longer dependable. In that case, the threat to all countries in Southeast Asia would increase."
+
+152. "Toward the end of the two weeks, Jiang had looked Ng Pock Too in the eye and said, 'You have not told me everything. You must have a secret. China has cheaper land, cheaper water, cheaper power, cheaper labour. Yet you get so many investments and we don't. What is the secret formula?' Nonplussed, Ng explained the key importance of political confidence and economic productivity. He pulled out his copy of the Business Environment Risk Index (BERI) report, and pointed out Singapore's rating as 1A on a scale of 1A down to 3C. China was not even included in the rating."
+
+### Rich China
+
+153. "I met Xu at the end of his visit. He told me he was interested in how we had used the free market to achieve rapid economic growth; how we had blended Western and Eastern culture as we absorbed Western science and technology; and, most important, how we maintained racial harmony. His delegation was responsible for ideology and wanted to learn how to eradicate social vices.
+
+     We were candid about the problems we could not solve. Vices such as prostitution, gambling, drug addiction, and alcoholism could only be controlled, not eradicated. Singapore's history as a seaport meant prostitution had to be managed and confined to certain areas of the city where the women were given regular health checks. Gambling was impossible to - suppress. It was an addiction Chinese migrants had carried with them wherever they settled. But we had eliminated the triads or secret societies and broken up organized crime."
+
+154. "we set out to eradicate such weaknesses as nepotism, favoritism, and corruption, which were the dark side of Chinese Confucianism - the obligation to help one's family. Singapore is a compact society and its leaders had to set the example in honesty and upright conduct. We considered it vital that the people feel confident the government would not cheat or harm them. Then, however unpopular government policies might be, the people accepted that they were not the result of immorality, nepotism, or corruption."
+
+155. Interesting bit about how hard it is to eliminate corruption in China's 'grey economy' because of the power of _guanxi_ (personal connections).
+
+156. "China has repeatedly stated that it will never become a hegemon. It is in everyone's interest that before that moment of choice arrives, China be given every incentive to choose international cooperation, which will absorb its energies constructively for another 50 to 100 years. This means China must have the economic opportunities to do this peacefully, without having to push its way to get resources like oil, or to have access to markets for its goods and services. There are fair and equitable rules in multilateral organizations like the WTO for a free exchange of goods and services so that each country can stay within its borders and improve its people's well-being through trade, investments, and other exchanges.
+
+     This was the way the Germans and the Japanese were able to rebuild after World War II. Their territories shrank even as they had to accept their nationals expelled from territories they had occupied and colonized. Despite smaller territories and reduced natural resources, both flourished as never before because they had access to markets through the IMF and GATT. If such a route is not open to China, the world must live with a pushy China. In that event, the United States will not be alone in being concerned about what China will do when it is able to contest the present world order settled by America and its partners in Europe."
+
+157. "The single decisive factor that made for Singapore's development was the ability of its ministers and the high quality of the civil servants who supported them. Whenever I had a lesser minister in charge, I invariably had to push and prod him, and later to review problems and clear roadblocks for him. The end result was never what could have been achieved. When I had the right man in charge, a burden was off my shoulders. I needed only to make clear the objectives to be achieved, the time frame within which he must try to do it, and he would find a way to get it done."
+
+158. "I must place Singapore in competent hands before retiring. To do this I had to find and get into office a group of men to provide Singapore with effective and creative leadership. Had I left it to chance, depending on activists coming forward to join us, I would never have succeeded. We set out to recruit the best into government. The problem was to persuade them to enter politics, get themselves elected, and learn how to move and win people over to their side. It was a slow and difficult process with a high attrition rate. Successful, capable professionals and - executives are not natural political leaders, able to argue, cajole, and demolish the arguments of opponents at mass rallies, on television, and in Parliament."
+
+159. "The new MPs, bright young men who had won scholarships to renowned universities... were taking over key jobs within 3-4 years of joining the PAP. The veterans felt they should not have such an easy path to office, but should learn and wait. I did not think young and talented men would sit and wait; either they were going to make it or they would move on."
