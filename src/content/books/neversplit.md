@@ -24,3 +24,6 @@ link: false
 17. Giving people permission to say 'no' preserves their deep need for autonomy. As such, it is a useful starting point for negotiations.
 18. Negotiators gain power by "understanding their counterpart's situation and extracting information about their counterpart's desires and needs. Extracting that information means getting the other party to feel safe and in control." Hence the power of getting them to say 'no'.
 19. Slow = in control.
+20. Before you can convince someone of what you're trying to accomplish, you have to say things to them that will get them to say "that's right." "You're right" is no good.
+21. Pause > Minimal encourager > Mirroring > Labeling > Paraphrase > Summarise.
+22.
