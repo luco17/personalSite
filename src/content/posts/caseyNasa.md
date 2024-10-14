@@ -13,9 +13,9 @@ I've been following [Casey Handmer's](https://caseyhandmer.wordpress.com/) writi
 
 4. You also have to spend a lot of your time dealing with bureaucratic inefficiency caused by the fact that the organisation is clogged - even in JPL - with people who will not do their jobs and will not resign and will not be fired. You think I'm speaking hyperbolically here.
 
-5. In private industry, if you fill your organisation with 99% bozos you will not release your products on time and on budget, your business will go under straight away and the creative destruction of capitalism will recycle these elements into something more productive, but at Nasa that never happens. They just print more money and the schedule moves to the right and the budget just climbs to infinity.
+5. In private industry, if you fill your organisation with 99% bozos, you will not release your products on time and on budget, your business will go under straight away and the creative destruction of capitalism will recycle these elements into something more productive, but at Nasa that never happens. They just print more money and the schedule moves to the right and the budget just climbs to infinity.
 
-6. What a great deal, I get to work at Nasa and my managers have markedly little interest in what I'm doing - when I personally pointed out that I'd saved a bunch of trouble on a project I got in trouble! So not only are they not measuring or rewarding productivity, they're actually punishing it, and then they ask why's it the case that we have difficulty retaining talent.
+6. What a great deal, I get to work at Nasa and my managers have markedly little interest in what I'm doing - when I personally pointed out that I'd saved a bunch of time on a project I got in trouble! So not only are they not measuring or rewarding productivity, they're actually punishing it, and then they ask why's it the case that we have difficulty retaining talent.
 
 7. Solve for the equilibrium: over time all the ambitious talented people will leave and you'll be left with whoever is not ambitious or talented.
 
