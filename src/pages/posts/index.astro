@@ -11,7 +11,9 @@ const allPosts = await getCollection("posts");
     <hr />
     <ul>
       {
-        allPosts.map((post) => (
+        allPosts
+        .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+        .map((post) => (
         <li>
           <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
           </li>
