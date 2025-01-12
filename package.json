@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "PersonalSite",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.4",
-    "astro": "^4.0.7",
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.1.5",
     "npm": "^10.2.5",
     "typescript": "^5.3.3"
   },

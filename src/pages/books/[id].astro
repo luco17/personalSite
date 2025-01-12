@@ -1,17 +1,17 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BookPostLayout from "../../layouts/BookPostLayout.astro";
 
 export async function getStaticPaths() {
-  const bookEntries = await getCollection("books");
-  return bookEntries.map((book) => ({
-    params: { slug: book.slug },
+  const books = await getCollection("books");
+  return books.map((book) => ({
+    params: { id: book.id },
     props: { book },
   }));
 }
 
 const { book } = Astro.props;
-const { Content } = await book.render();
+const { Content } = await render(book);
 ---
 
 <BookPostLayout frontmatter={book.data}>

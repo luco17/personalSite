@@ -18,7 +18,7 @@ const allBooks = await getCollection("books");
         .map((book) => (
           <li>
             {book.data.link ? (
-              <a href={`/books/${book.slug}/`}>{book.data.title}</a><span class="author"> - {book.data.author}</span>
+              <a href={`/books/${book.id}/`} data-astro-prefetch>{book.data.title}</a><span class="author"> - {book.data.author}</span>
             ) : (
               <span>{book.data.title} - </span><span class="author">{book.data.author}</span>
             )}

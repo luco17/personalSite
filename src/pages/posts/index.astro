@@ -4,7 +4,6 @@ import Layout from "../../layouts/Layout.astro";
 const allPosts = await getCollection("posts");
 ---
 
-
 <Layout title="LOD - Posts">
   <main>
     <h2>Posts</h2>
@@ -15,7 +14,7 @@ const allPosts = await getCollection("posts");
         .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
         .map((post) => (
         <li>
-          <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+          <a href={`/posts/${post.id}/`} data-astro-prefetch>{post.data.title}</a>
           </li>
         ))
       }
