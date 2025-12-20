@@ -5,7 +5,12 @@ const { frontmatter } = Astro.props;
 
 <Layout title="Book">
   <main>
-    <p><a href="/books">&lt;-- Back to books</a></p>
+    <p>
+      <a href="/books" class="group">
+        <span class="animate-arrow-spring">&larr;</span>
+        Back to books
+      </a>
+    </p>
     <h3>{frontmatter.title}</h3>
     <p>{frontmatter.author}</p>
     <hr />

@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -28,68 +29,3 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
-<style is:global>
-  html {
-    font-family: system-ui, sans-serif;
-    /* background: #13151a; */
-  }
-
-  p {
-    line-height: 1.35em;
-    font-size: 1.15em;
-  }
-
-  blockquote {
-    background: #f9f9f9;
-    border-left: 4px solid #ccc;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-  }
-
-  ol {
-    padding-left: 1.2rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html {
-      background-color: #111111;
-      color: #fff;
-    }
-
-    a {
-      color: lightskyblue;
-    }
-
-    a:hover {
-      color: lightseagreen;
-    }
-
-    blockquote {
-      background: #222222;
-      border-left: 10px solid #444444;
-    }
-  }
-
-  body {
-    margin: auto;
-    padding: 1rem;
-    max-width: 720px;
-  }
-
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-
-  blockquote p {
-    display: inline;
-    font-style: italic;
-  }
-</style>

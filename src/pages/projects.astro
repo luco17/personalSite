@@ -4,82 +4,168 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="LOD - Projects">
   <main>
-    <h2>Projects</h2>
-    <p>A list of things I've worked on or am actively involved with</p>
-    <hr />
-    <h4>Products</h4>
-    <em>RationBuddy</em>
-    <hr />
-    <p>
-      RationBuddy is a mobile app that helps farmers calculate their rations for
-      cattle. I launched this in Jan 2025.
-    </p>
-    <em>The Workout Projektt</em>
-    <hr />
-    <p>
-      This was my first product and I started work on it during lockdown 2020.
-      The premise was simple: build a platform that let
-      athletes/coaches/influencers sell workout programs to their followers.
-    </p>
-    <p>
-      I'll write several posts about the journey over the coming weeks but the
-      TLDR is that I learn huge amounts but made lots of blunders. We released a
-      V1, signed up a bunch of coaches and made sales but I decided to pivot for
-      a few reasons, the main one being app store fee split complications.
-    </p>
-    <em>Squaddy (V1)</em>
-    <hr />
-    <p>
-      This was our pivot from Projektt. Squaddy V1 was a mobile app that allowed
-      you to create 'squads' that you invited people to and posted workouts in.
-      I figured that it would grow organically from people creating squads and
-      inviting their friends. This happened and we grew to 10k users in about 6
-      months. We did a major V2 rebuild to allow people to record and share
-      their own diaries ~ a la Strava.
-    </p>
-    <em><a href="https://squaddy.app">Squaddy (V2)</a></em>
-    <hr />
-    <p>
-      This is live on the app stores. We're slowly improving it but are no
-      longer doing this full time. I had to get a day job to pay the bills after
-      my wife and I had our daughter. I use Squaddy every day and love it. It
-      continues to steadily grow and make us okay revenue. We'll see where it
-      goes now we've given it some room to breathe!
-    </p>
-    <h4>Websites</h4>
-    <p>
-      Building websites mixes the technical and creative in a way I find
-      relaxing. Most of these are built with Astro, Tailwind and Alpine but
-      there are some Next.js ones in the mix too. I host them all on Vercel or
-      Netlify and do my design in Figma.
-    </p>
-    <p>
-      <a href="https://cloudsecure.ltd">CloudSecure landing page</a>
-    </p>
-    <p>
-      <a href="https://squaddy.app">Squaddy landing page</a>
-    </p>
-    <p>
-      <a href="https://goldenera.squaddy.app">'Golden Era' workout finder</a>
-    </p>
-    <p><a href="https://squaddy.app/schools">Squaddy for schools</a></p>
-    <p>
-      <a href="https://amazing-rabanadas-7b0b3f.netlify.app"
-        >Swim club redesign</a
-      >
-    </p>
-    <p>
-      <a href="https://wondrous-dolphin-b2df9b.netlify.app">
-        'Weasel' programming framework</a
-      >
-    </p>
-    <p>
-      <a href="https://www.redarrowstrust.org.uk">Red Arrows Trust</a>
-    </p>
-    <p>
-      <a href="https://dominiccummingsreader.netlify.app"
-        >Dominic Cummings Reader</a
-      >
-    </p>
+    <header>
+      <h1>Projects</h1>
+      <p>A list of things I've worked on or am actively involved with</p>
+      <hr />
+    </header>
+
+    <section>
+      <h2>Products</h2>
+
+      <article>
+        <header>
+          <h3>Hendley</h3>
+        </header>
+        <p>
+          Hendley is a waste management application for the nuclear sector. As
+          of Dec 2025 it's in a proof of concept phase.
+        </p>
+      </article>
+
+      <article>
+        <header>
+          <h3><a href="https://seshin.squaddy.app">Seshin</a></h3>
+        </header>
+        <p>
+          This is a successor product to Squaddy. A simple, powerful workout
+          tracker built using SwiftUI. Free for all users and what I use to
+          track all my workouts.
+        </p>
+      </article>
+
+      <article>
+        <header>
+          <h3>RationBuddy</h3>
+        </header>
+        <p>
+          RationBuddy is a mobile app that helps farmers calculate their rations
+          for cattle. I launched this in Jan 2025.
+        </p>
+      </article>
+
+      <article>
+        <header>
+          <h3>The Workout Projektt</h3>
+        </header>
+        <p>
+          This was my first product and I started work on it during lockdown
+          2020. The premise was simple: build a platform that let
+          athletes/coaches/influencers sell workout programs to their followers.
+        </p>
+        <p>
+          I'll write several posts about the journey over the coming weeks but
+          the TLDR is that I learn huge amounts but made lots of blunders. We
+          released a V1, signed up a bunch of coaches and made sales but I
+          decided to pivot for a few reasons, the main one being app store fee
+          split complications.
+        </p>
+      </article>
+
+      <article>
+        <header>
+          <h3>Squaddy (V1)</h3>
+        </header>
+        <p>
+          This was our pivot from Projektt. Squaddy V1 was a mobile app that
+          allowed you to create 'squads' that you invited people to and posted
+          workouts in. I figured that it would grow organically from people
+          creating squads and inviting their friends. This happened and we grew
+          to 10k users in about 6 months. We did a major V2 rebuild to allow
+          people to record and share their own diaries ~ a la Strava.
+        </p>
+      </article>
+
+      <article>
+        <header>
+          <h3><a href="https://squaddy.app">Squaddy (V2)</a></h3>
+        </header>
+        <p>
+          This is live on the app stores. We're slowly improving it but are no
+          longer doing this full time. I had to get a day job to pay the bills
+          after my wife and I had our daughter. I use Squaddy every day and love
+          it. It continues to steadily grow and make us okay revenue. We'll see
+          where it goes now we've given it some room to breathe!
+        </p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Websites</h2>
+      <p>
+        Building websites mixes the technical and creative in a way I find
+        relaxing. Most of these are built with Astro, Tailwind and Alpine but
+        there are some Next.js ones in the mix too. I host them all on Vercel or
+        Netlify and do my design in Figma.
+      </p>
+
+      <article>
+        <header>
+          <h3>
+            <a href="https://cloudsecure.ltd">CloudSecure landing page</a>
+          </h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3><a href="https://squaddy.app">Squaddy landing page</a></h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3>
+            <a href="https://goldenera.squaddy.app"
+              >'Golden Era' workout finder</a
+            >
+          </h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3><a href="https://squaddy.app/schools">Squaddy for schools</a></h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3>
+            <a href="https://amazing-rabanadas-7b0b3f.netlify.app"
+              >Swim club redesign</a
+            >
+          </h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3>
+            <a href="https://wondrous-dolphin-b2df9b.netlify.app"
+              >'Weasel' programming framework</a
+            >
+          </h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3>
+            <a href="https://www.redarrowstrust.org.uk">Red Arrows Trust</a>
+          </h3>
+        </header>
+      </article>
+
+      <article>
+        <header>
+          <h3>
+            <a href="https://dominiccummingsreader.netlify.app"
+              >Dominic Cummings Reader</a
+            >
+          </h3>
+        </header>
+      </article>
+    </section>
   </main>
 </Layout>
