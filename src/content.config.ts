@@ -19,4 +19,12 @@ const posts = defineCollection({
   }),
 });
 
-export const collections = { books, posts };
+const til = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/til" }),
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+  }),
+});
+
+export const collections = { books, posts, til };
