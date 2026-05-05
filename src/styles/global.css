@@ -7,12 +7,12 @@ body {
   margin: auto;
   padding: 1rem;
   max-width: 720px;
+  font-size: 1.15em;
 }
 
 /* Typography */
 p {
   line-height: 1.35em;
-  font-size: 1.15em;
 }
 
 code {
