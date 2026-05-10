@@ -1,5 +1,5 @@
 ---
-title: Spinning out a product company: order matters
+title: "Spinning out a product company: order matters"
 date: 2026-05-08
 ---
 
