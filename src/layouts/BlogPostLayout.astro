@@ -5,7 +5,12 @@ const { frontmatter } = Astro.props;
 
 <Layout title="Lucien O ~ Posts">
   <main>
-    <p><a href="/posts">&lt;-- Back to posts</a></p>
+    <p>
+      <a href="/posts" class="group">
+        <span class="animate-arrow-spring">&larr;</span>
+        Back to posts
+      </a>
+    </p>
     <h3>{frontmatter.title}</h3>
     <p>{frontmatter.date.toDateString()}</p>
     <hr />
