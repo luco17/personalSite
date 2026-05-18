@@ -33,6 +33,13 @@ pre {
   border-radius: 0.25rem;
 }
 
+:not(pre) > code {
+  background: #f3f3f3;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
 /* Lists */
 ol {
   padding-left: 1.2rem;
@@ -113,6 +120,10 @@ article p:first-of-type {
   blockquote {
     background: #222222;
     border-left: 10px solid #444444;
+  }
+
+  :not(pre) > code {
+    background: #222222;
   }
 }
 
