@@ -2,7 +2,7 @@
 title: "The Infinity Machine"
 author: "Sebastian Mallaby"
 date: 2026-05-22
-link: false
+link: true
 ---
 
 1. "I sit at my desk at 2am and I feel like reality is staring at me... literally screaming at me, trying to tell me something if I could just listen hard enough. That's how I feel every day, so you can see why I'm trying to build AI. I've felt that since I was very young."
