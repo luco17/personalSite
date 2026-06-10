@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 
 // File order is curation order; ids make it explicit.
 const quotes = (await getCollection("quotes")).sort(

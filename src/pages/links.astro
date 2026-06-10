@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 
 // Newest month first; ids preserve curation order within a month.
 const links = (await getCollection("links")).sort(
