@@ -2,7 +2,6 @@
 title: "The Cult Of We"
 author: "Eliot Brown & Maureen Farrell"
 date: 2022-05-14
-link: false
 ---
 
 Great book. Like a lot of these start-up stories it has this strong narrative pull of the classic "tragedy".

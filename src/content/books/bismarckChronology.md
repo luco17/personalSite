@@ -2,7 +2,6 @@
 title: "Bismarck Chronology"
 author: "Dominic Cummings"
 date: 2024-10-13
-link: false
 ---
 
 1. At university the republican and liberal students repelled him with their bad manners and refusal to duel: ‘their want of breeding in externals and of acquaintance with the forms and manners of good society’, and ‘the extravagance of their political views, based upon a lack of either culture or knowledge of the conditions of life which historical causes had brought into existence... Their ideas gave me the impression of an association between Utopian theories and defective breeding... I returned to Berlin with less liberal opinions than when I quitted it.’

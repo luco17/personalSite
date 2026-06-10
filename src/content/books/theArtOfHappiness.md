@@ -2,7 +2,6 @@
 title: "The Art of Happiness"
 author: "Howard C. Cutler"
 date: 2019-12-06
-link: false
 ---
 
 I was given this by a colleague as a leaving present. I was about to start a walk across the Pyrenees [(the GR10)](<https://en.wikipedia.org/wiki/GR_10_(France)>) and he must have thought it was as good a time as any for a reflection on happiness. I didn't manage to start it until 18 months later, but once I got going I read it in two weeks.

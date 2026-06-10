@@ -2,7 +2,6 @@
 title: "Never Split the Difference"
 author: "Chris Voss"
 date: 2024-09-18
-link: false
 ---
 
 1. Use the other party's name(s)

@@ -2,7 +2,6 @@
 title: "Range"
 date: 2020-03-07T17:14:04Z
 author: David Epstein
-link: false
 ---
 
 A fitness guru called Paul Chek wrote "in today's science we know more and more about less and less". Esptein's book takes up the issue and makes the case for the dabbling generalist. There's so much in here that I'll just extract the quotes and ideas I liked.

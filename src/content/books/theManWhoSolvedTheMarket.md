@@ -2,7 +2,6 @@
 title: "The Man Who Solved the Market"
 author: "Gregory Zuckerman"
 date: 2020-02-02T20:41:34Z
-link: false
 ---
 
 I asked for this as a Christmas present. I wanted to read it because it touches on finance, maths and computing, but on finishing I realised that its really about the difficulties of building a business. It shows how Jim Simons' success depended on his ability to sell a vision, manage talent and use his contact book. Without knowing and convincing the right people, Renaissance would not have survived.
