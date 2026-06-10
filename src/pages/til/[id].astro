@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import TilPostLayout from "../../layouts/TilPostLayout.astro";
+import PostLayout from "../../layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
   const til = await getCollection("til");
@@ -14,6 +14,11 @@ const { item } = Astro.props;
 const { Content } = await render(item);
 ---
 
-<TilPostLayout frontmatter={item.data}>
+<PostLayout
+  title={item.data.title}
+  byline={item.data.date.toDateString()}
+  backHref="/til"
+  backLabel="Back to TIL"
+>
   <Content />
-</TilPostLayout>
+</PostLayout>

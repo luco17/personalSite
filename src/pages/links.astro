@@ -1,435 +1,51 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+
+// Newest month first; ids preserve curation order within a month.
+const links = (await getCollection("links")).sort(
+  (a, b) =>
+    b.data.month.localeCompare(a.data.month) || Number(a.id) - Number(b.id),
+);
+const months = [...new Set(links.map((link) => link.data.month))];
+
+const monthLabel = (month: string) =>
+  new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 ---
 
-<Layout title="LOD - Links">
+<Layout
+  title="LOD - Links"
+  description="The best things I've found each month."
+>
   <main>
-    <h2>Links</h2>
+    <h1>Links</h1>
     <p>A List of the best things I've found each month</p>
     <hr />
-    <h4>June 2026</h4>
-    <p>
-      <a href="https://yazi-rs.github.io/">Yazi Terminal File Manager</a>
-    </p>
-    <h4>May 2026</h4>
-    <p>
-      <a href="https://github.com/withastro/flue">Flue: Agent Harness Framework</a>
-    </p>
-    <p>
-      <a href="https://github.com/simonw/rodney">Browser Automation using Rodney</a>
-    </p>
-    <p>
-      <a href="https://simonwillison.net/guides/agentic-engineering-patterns">Agentic Engineering Patterns</a>
-    </p>
-    <p>
-      <a href="https://developers.cloudflare.com/containers/">Cloudflare Containers</a>
-    </p>
-    <p>
-      <a href="https://x.com/trq212/status/2052809885763747935?s=46">the unreasonable effectiveness of html</a>
-    </p>
-    <p>
-      <a href="https://x.com/tobi/status/2053121182044451016?s=46">Learning on the shop floor - AI in the open</a>
-    </p>
-    <p>
-      <a href="https://allendowney.github.io/ThinkLinearAlgebra/index.html">Think Linear Algebra</a>
-    </p>
-    <h4>April 2026</h4>
-    <p>
-      <a href="https://jordanlord.co.uk/blog/3-constraints/"
-        >3 constraints before I build anything</a
-      >
-    </p>
-    <p>
-      <a href="https://www.notboring.co/p/the-company-as-a-machine-for-doing"
-        >The Company as a Machine for Doing Stuff</a
-      >
-    </p>
-    <h4>March 2026</h4>
-    <p>
-      <a href="https://www.nasa.gov/history/rogersrep/v2appf.htm"
-        >Feynman's personal observations on reliability of shuttle (Challenger disaster)</a
-      >
-    </p>
-    <p>
-      <a href="https://mynoise.net">myNoise</a>
-    </p>
-    <h4>February 2026</h4>
-    <p>
-      <a href="https://www.simonberens.com/p/lessons-learned-shipping-500-units"
-        >Lessons Learned Shipping 500 Units of my First Hardware Product</a
-      >
-    </p>
-    <p>
-      <a href="https://www.benkuhn.net/pjm/">How I've run major projects</a>
-    </p>
-    <h4>January 2026</h4>
-    <p>
-      <a href="https://github.com/zakirullin/cognitive-load"
-        >Cognitive Load in coding</a
-      >
-    </p>
-    <h4>December 2025</h4>
-    <p>
-      <a
-        href="https://github.com/diet103/claude-code-infrastructure-showcase/tree/main/dev"
-        >Claude Code Skills Showcase</a
-      >
-    </p>
-    <p>
-      <a href="https://cursor.com/learn">Cursor Learn</a>
-    </p>
-    <p>
-      <a
-        href="https://cookbook.openai.com/examples/gpt-5/gpt-5-1_prompting_guide"
-        >GPT-5.1 Prompting Guide</a
-      >
-    </p>
-    <h4>November 2025</h4>
-    <p>
-      <a
-        href="https://25iq.com/2013/06/23/a-dozen-things-ive-learned-about-business-in-999-words/"
-        >A Dozen Things I've Learned About Business</a
-      >
-    </p>
-    <p>
-      <a href="https://www.youtube.com/watch?v=xmYekD6-PZ8"
-        >Bill Gurley: Runnin' down a dream</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://medium.com/smith-diction/branding-superhuman-and-grammarly-and-coda-8c57f970bead"
-        >Branding Superhuman and Grammarly and Coda</a
-      >
-    </p>
-    <p>
-      <a href="https://x.com/garrytan/status/1991508540494885374"
-        >Garry Tan on moats in 2025</a
-      >
-    </p>
-    <h4>October 2025</h4>
-    <p>
-      <a href="https://bleuje.com/animationsite/">Abstract gif animations</a>
-    </p>
-    <p>
-      <a href="https://pmarchive.com/guide_to_personal_productivity.html"
-        >Pmarca personal prod</a
-      >
-    </p>
-    <p>
-      <a href="https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"
-        >The lethal trifecta (LLM security)</a
-      >
-    </p>
-    <p>
-      <a href="https://mathacademy.com/pedagogy">Math Academy Pedagogy</a>
-    </p>
-    <p>
-      <a
-        href="https://dominiccummings.substack.com/p/snippets-16-what-comes-after-starmer"
-        >What comes after Starmer</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API"
-        >View Transition API</a
-      >
-    </p>
-    <h4>August 2025</h4>
-    <p>
-      <a href="https://news.ycombinator.com/item?id=41034297"
-        >Solving the out-of-context chunk problem for RAG</a
-      >
-    </p>
-    <p>
-      <a href="https://jakub.kr/components/oklch-colors"
-        >What are OKLCH colors?</a
-      >
-    </p>
-    <h4>July 2025</h4>
-    <p>
-      <a href="https://bagerbach.com/blog/how-i-use-claude-code/"
-        >How I use Claude Code</a
-      >
-    </p>
-    <p>
-      <a href="https://github.com/tokenbender/agent-guides">Agent Guides</a>
-    </p>
-    <p>
-      <a
-        href="https://www.mathsisfun.com/algebra/quadratic-equation-real-world.html"
-        >Quadratic Equations in the Real World</a
-      >
-    </p>
-    <p>
-      <a href="https://www.youtube.com/watch?v=EWvNQjAaOHw&t"
-        >How I use LLMs - Karpathy</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://stackoverflow.com/questions/5967564/form-inside-a-table/5967613"
-        >forms inside tables</a
-      >
-    </p>
-    <h4>June 2025</h4>
-    <p>
-      <a href="https://grugbrain.dev">The Grug Brained Developer</a>
-    </p>
-    <p>
-      <a href="https://x.com/karpathy/status/1935518272667217925"
-        >Karpathy's Ai startup school talk</a
-      >
-    </p>
-    <p>
-      <a href="https://www.fastht.ml/docs/tutorials/by_example.html"
-        >Fast HTML</a
-      >
-    </p>
-    <p>
-      <a href="https://gitingest.com/">gitingest</a>
-    </p>
-    <h4>May 2025</h4>
-    <p>
-      <a href="https://every-layout.dev/rudiments/boxes/">Every Layout - CSS</a>
-    </p>
-    <p>
-      <a
-        href="https://www.construction-physics.com/p/how-japan-invented-modern-shipbuilding"
-        >How Japan invented modern shipbuilding</a
-      >
-    </p>
-    <h4>December 2024</h4>
-    <p><a href="https://crushcrime.org">Crush Crime</a></p>
-    <h4>November 2024</h4>
-    <p>
-      <a href="https://world.hey.com/dhh/the-spells-are-spent-beaa675b"
-        >DHH - good riddance</a
-      >
-    </p>
-    <p>
-      <a href="https://x.com/KonstantinKisin/status/1854151133385613690"
-        >Kisin Tweet</a
-      >
-    </p>
-    <h4>October 2024</h4>
-    <p>
-      <a
-        href="https://www2.math.uconn.edu/~stein/virtual/Notes/differentiation.html"
-        >Calculating Derivatives</a
-      >
-    </p>
-    <p>
-      <a href="https://science.nasa.gov/ems/">NASA series on the EM spectrum</a>
-    </p>
-    <h4>September 2024</h4>
-    <p>
-      <a
-        href="https://www.grc.nasa.gov/www/k-12/Numbers/Math/Mathematical_Thinking/fermis_piano_tuner.htm"
-        >Fermi's Piano Tuner problem</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://drive.google.com/file/d/1YaG9xpu-WQKBPUi8yQ4HaDYQLUSa7Y3J/view"
-        >Working at Mr Beast</a
-      >
-    </p>
-    <p>
-      <a href="https://ukfoundations.co"
-        >Foundations: Why Britain has stagnated</a
-      >
-    </p>
-    <h4>August 2024</h4>
-    <p>
-      <a href="https://sites.prh.com/modern-library-top-100"
-        >100 Best modern english novels & non-fiction books (1998)</a
-      >
-    </p>
-    <p>
-      <a href="https://spectrum.ieee.org/fitbit">The First Fitbit</a>
-    </p>
-    <p>
-      <a href="https://fs.blog/david-foster-wallace-this-is-water/"
-        >This is water ~ David Foster Wallace</a
-      >
-    </p>
-    <p>
-      <a href="https://benlo.com/visicalc/">Visicalc - The Early Days</a>
-    </p>
-    <p>
-      <a href="https://urchin.biz/urchin-software-corp-89a1f5292999"
-        >Urchin Software Corp. Origins</a
-      >
-    </p>
-    <h4>July 2024</h4>
-    <p>
-      <a href="https://x.com/RichardMCNgo/status/1819400985569329350"
-        >Far-left</a
-      >
-    </p>
-    <p>
-      <a href="https://www.hackingwithswift.com/100/swiftui"
-        >100 days of SwiftUI</a
-      >
-    </p>
-    <p>
-      <a href="https://phauer.com/2020/package-by-feature/"
-        >Package by feature</a
-      >
-    </p>
-
-    <h4>June 2024</h4>
-    <p>
-      <a href="https://x.com/destraynor/status/1258372157706510336"
-        >Writing like an Amazonian</a
-      >
-    </p>
-    <p><a href="https://tegowerk.eu/posts/bicycle-repair/">Fix your bike</a></p>
-    <h4>May 2024</h4>
-    <p>
-      <a href="https://github.com/bobeff/programming-math-science"
-        >Math and Science resources (free)</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://thecreativeindependent.com/people/adam-curtis-on-the-dangers-of-self-expression/"
-        >Dangers of self-expression (Adam Curtis)</a
-      >
-    </p>
-    <p>
-      <a href="https://tonsky.me/blog/js-bloat/">Javascript Bloat in 2024</a>
-    </p>
-    <h4>April 2024</h4>
-    <p>
-      <a
-        href="https://futureweekly2050.substack.com/p/conversation-with-casey-handmer-how"
-        >Casey Handmer speaking re Terraform Industries</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://www.manifold1.com/episodes/russell-clark-japan-china-and-usd-reserve-status-56"
-        >Manifold Podcast: Japan, China, USD reserve status</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://fs.blog/great-talks/guarantee-life-misery-charlie-munger/"
-        >Charlie Munger: How to guarantee a life of misery</a
-      >
-    </p>
-    <h4>March 2024</h4>
-    <p>
-      <a href="https://www.youtube.com/watch?v=4lx9Wtd2P48"
-        >Susan Kare: talk on design</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://www.palladiummag.com/2024/03/01/the-first-world-government/"
-        >The First World Government</a
-      >
-    </p>
-    <h4>February 2024</h4>
-    <p>
-      <a
-        href="https://www.researchgate.net/publication/228797158_How_complex_systems_fail"
-        >How complex systems fail</a
-      >
-    </p>
-    <p>
-      <a href="https://twitter.com/SahilBloom/status/1581260995153911809"
-        >More cold emails</a
-      >
-    </p>
-    <p><a href="https://danwang.co">Dan Wang's 2023 letter</a></p>
-    <p>
-      <a
-        href="https://www.thenewatlantis.com/publications/do-elephants-have-souls"
-        >Do elephants have souls?</a
-      >
-    </p>
-    <h4>January 2024</h4>
-    <p>
-      <a
-        href="https://berkshirehathaway.com/SpecialLetters/CTM%20past%20present%20future%202014.pdf"
-        >Running Berkshire Hathaway</a
-      >
-    </p>
-    <p>
-      <a href="https://dominiccummings.substack.com/p/tolstoy"
-        >Cummings on Tolstoy</a
-      >
-    </p>
-    <h4>December 2023</h4>
-    <p>
-      <a
-        href="https://cs.stanford.edu/people/karpathy/advice.html"
-        target="_blank"
-        rel="noopener noreferrer">How to study (undergrad)</a
-      > - Andrej Karpathy
-    </p>
-    <p>
-      <a
-        href="https://caseyhandmer.wordpress.com/2023/08/25/you-should-be-working-on-hardware/"
-        target="_blank"
-        rel="noopener noreferrer">You should be working on hardware</a
-      > - Casey Handmer
-    </p>
-    <p>
-      <a
-        href="https://caseyhandmer.wordpress.com/2023/08/16/how-to-produce-green-hydrogen-for-1-kg/"
-        target="_blank"
-        rel="noopener noreferrer">How to produce green hydrogen for $1/kg</a
-      > - Casey Handmer
-    </p>
-    <p>
-      <a
-        href="https://dominiccummings.substack.com/p/how-to-help-parents-and-teachers"
-        target="_blank"
-        rel="noopener noreferrer">Help give your kids a better education</a
-      > - Dominic Cummings
-    </p>
-    <p>
-      <a
-        href="https://terraformindustries.wordpress.com/2023/01/09/terraform-industries-whitepaper-2-0/"
-        target="_blank"
-        rel="noopener noreferrer">Whitepaper 2.0</a
-      > - Terraform Industries
-    </p>
-    <p>
-      <a
-        href="https://world.hey.com/dhh/inspiration-is-perishable-f2c8652e"
-        target="_blank"
-        rel="noopener noreferrer">Inspiration is perishable</a
-      > - DHH
-    </p>
-    <p>
-      <a href="https://jsomers.net/blog/speed-matters" target="_blank" rel="noopener noreferrer"
-        >Speed matters</a
-      > - J Somers
-    </p>
-    <p>
-      <a href="https://patrickcollison.com/bookshelf" target="_blank" rel="noopener noreferrer"
-        >Bookshelf</a
-      > - Patrick Collison
-    </p>
-    <p>
-      <a
-        href="https://twitter.com/sriramk/status/1214278839490105344"
-        target="_blank"
-        rel="noopener noreferrer">Emailing CEOs etc</a
-      > - Sriram Krishnan
-    </p>
-    <p>
-      <a
-        href="https://www.runandbecome.com/running-training-advice/low-heart-rate-training"
-        target="_blank"
-        rel="noopener noreferrer">Low heart rate training</a
-      > - Run and become
-    </p>
+    {
+      months.map((month) => (
+        <>
+          <h2>{monthLabel(month)}</h2>
+          {links
+            .filter((link) => link.data.month === month)
+            .map((link) => (
+              <p>
+                <a href={link.data.url}>{link.data.title}</a>
+              </p>
+            ))}
+        </>
+      ))
+    }
   </main>
 </Layout>
+
+<style>
+  /* Month headings sit at h2 in the outline but keep the compact look. */
+  h2 {
+    font-size: 1em;
+    margin-block: 1.4em 0.7em;
+  }
+</style>

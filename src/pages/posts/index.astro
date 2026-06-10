@@ -1,17 +1,19 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { byDateDesc } from "../../lib/sort";
+
 const allPosts = await getCollection("posts");
 ---
 
-<Layout title="LOD - Posts">
+<Layout title="LOD - Posts" description="The occasional article.">
   <main>
-    <h2>Posts</h2>
+    <h1>Posts</h1>
     <hr />
     <ul>
       {
         allPosts
-        .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+        .sort(byDateDesc)
         .map((post) => (
         <li>
           <a href={`/posts/${post.id}/`} data-astro-prefetch>{post.data.title}</a>
@@ -30,14 +32,4 @@ const allPosts = await getCollection("posts");
   li {
     padding: 4px 0;
   }
-
-  .author {
-    font-size: 0.8rem;
-    color:darkslategrey;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .author {
-      color:ghostwhite;
-    }
 </style>

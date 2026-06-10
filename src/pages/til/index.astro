@@ -1,18 +1,20 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { byDateDesc } from "../../lib/sort";
+
 const allTil = await getCollection("til");
 ---
 
-<Layout title="LOD - TIL">
+<Layout title="LOD - TIL" description="Things I learned today.">
   <main>
-    <h2>TIL</h2>
+    <h1>TIL</h1>
     <p>Things I learned today.</p>
     <hr />
     <ul>
       {
         allTil
-        .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf())
+        .sort(byDateDesc)
         .map((til) => (
           <li>
             <a href={`/til/${til.id}/`} data-astro-prefetch>{til.data.title}</a>

@@ -43,9 +43,12 @@ const commandments = [
 ];
 ---
 
-<Layout title="LOD - Fitness">
+<Layout
+  title="LOD - Fitness"
+  description="Personal bests, fitness pointers and a short training history."
+>
   <main>
-    <h2>Fitness</h2>
+    <h1>Fitness</h1>
     <hr />
     <p>
       I've been exercising 6 days a week since I was 15. During periods of more
@@ -54,13 +57,16 @@ const commandments = [
       app and I've tinkered away at a personal workout tracker before settling
       on <a href="https://seshin.squaddy.app">Seshin</a>
     </p>
-    <h3>Personal bests</h3>
+    <h2>Personal bests</h2>
     <table>
-      <tr>
-        <th>Exercise</th>
-        <th>Score</th>
-        <th>Age</th>
-      </tr>
+      <thead>
+        <tr>
+          <th scope="col">Exercise</th>
+          <th scope="col">Score</th>
+          <th scope="col">Age</th>
+        </tr>
+      </thead>
+      <tbody>
       <tr>
         <td>5k run</td>
         <td>18:52</td>
@@ -101,8 +107,9 @@ const commandments = [
         <td>120kg</td>
         <td>31</td>
       </tr>
+      </tbody>
     </table>
-    <h3>Fitness Pointers</h3>
+    <h2>Fitness Pointers</h2>
     <ol>
       {
         commandments.map((comm) => (
@@ -113,7 +120,7 @@ const commandments = [
         ))
       }
     </ol>
-    <h3>Rowing: How it started (2005-2012)</h3>
+    <h2>Rowing: How it started (2005-2012)</h2>
     <p>
       I was hopeless at exercise as a kid. I had asthma and hated the heavy
       feeling on my lungs whenever I pushed myself; I gave up if it didn't come
@@ -142,7 +149,7 @@ const commandments = [
       too serious and I'd lost the joy of it; without that burning ambition
       driving me on I stopped.
     </p>
-    <h3>Triathlon: Escape from the weight room (2012-2018)</h3>
+    <h2>Triathlon: Escape from the weight room (2012-2018)</h2>
     <p>
       My brother got me to do a triathlon with him for fun. I came 12th and
       thought 'I could be okay at this.' Post rowing I'd gotten very into
@@ -153,7 +160,7 @@ const commandments = [
       Strangely I never did much better than the first tri. I got down to my
       lightest here, at about 81kg.
     </p>
-    <h3>CrossFit: Embrace the chaos (2018-2023)</h3>
+    <h2>CrossFit: Embrace the chaos (2018-2023)</h2>
     <p>
       My friend Patrice got me intro CrossFit. I'd heard about it and watched
       the Netflix docs but hadn't taken the leap. From my first session I was
@@ -165,7 +172,7 @@ const commandments = [
       really a strong person's game. I can't get that strong without something
       breaking.
     </p>
-    <h3>Early middle age: Post Kid (2023 - now)</h3>
+    <h2>Early middle age: Post Kid (2023 - now)</h2>
     <p>
       These days I'm focusing on <a href="https://functional-bodybuilding.com/"
         >functional bodybuilding</a

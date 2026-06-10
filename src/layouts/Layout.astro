@@ -4,21 +4,30 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = "Welcome! I hope you find something of interest here. Lucien",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Welcome! I hope you find something of interest here. Lucien"
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/weaselOg.ico" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="LOD - Posts"
+      href="/rss.xml"
     />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/weaselOg.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script defer data-domain="lcod.uk" src="https://plausible.io/js/script.js"

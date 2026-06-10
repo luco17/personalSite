@@ -1,6 +1,7 @@
 ---
 title: Casey Handmer on Nasa underperformance
 date: 2024-10-13
+description: "Casey Handmer on why NASA underperforms, and how it chimed with my experience of government work."
 ---
 
 I've been following [Casey Handmer's](https://caseyhandmer.wordpress.com/) writing and podcasts appearances over the past year since stumbling across his company, Terraform Industries. He's always got interesting stuff to say and his recent appearance on the 'Off-Nominal' podcast included a demolition job on the current Nasa administration that resonated with some of my own experiences of working in government. I've put the key bits below:

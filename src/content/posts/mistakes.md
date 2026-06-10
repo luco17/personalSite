@@ -1,6 +1,7 @@
 ---
 title: My startup mistakes
 date: 2024-01-15
+description: "The biggest mistakes I made building my first startup."
 ---
 
 > Experience keeps a dear school, yet fools will learn in no other. ~ Ben Franklin

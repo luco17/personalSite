@@ -1,5 +1,16 @@
+---
+// The site title is the homepage's h1; elsewhere it's decorative.
+const isHome = Astro.url.pathname === "/";
+---
+
 <nav>
-  <span class="site-title">Lucien O</span>
+  {
+    isHome ? (
+      <h1 class="site-title">Lucien O</h1>
+    ) : (
+      <span class="site-title">Lucien O</span>
+    )
+  }
   <div>
     <a href="/" data-astro-prefetch>Home</a>
     <span>|</span>
@@ -19,20 +30,11 @@
   </div>
 </nav>
 <style>
-  nav {
-    /* display: flex; */
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  nav > a {
-    margin: 0 2px;
-  }
-
   .site-title {
     font-weight: bold;
     font-size: 1.1em;
     display: inline-block;
+    margin: 0;
     padding-block: 0.5rem;
   }
 </style>

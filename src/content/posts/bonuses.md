@@ -1,6 +1,7 @@
 ---
 title: Bonuses vs. Overtime
 date: 2024-09-17
+description: "Why I favoured bonuses over overtime when shaping pay policy for a tech services firm."
 ---
 
 I was recently shaping remuneration policies for a tech services firm and wanted to remove overtime in favour of bonuses. One of my closest colleagues - and also my business partner - was against. It was an interesting discussion I mulled over for a while and here are my conclusions.

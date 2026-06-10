@@ -1,9 +1,10 @@
 ---
 import { getCollection, render } from "astro:content";
-import BookPostLayout from "../../layouts/BookPostLayout.astro";
+import PostLayout from "../../layouts/PostLayout.astro";
 
 export async function getStaticPaths() {
-  const books = await getCollection("books");
+  // Only build pages for books whose notes are published.
+  const books = await getCollection("books", ({ data }) => data.link);
   return books.map((book) => ({
     params: { id: book.id },
     props: { book },
@@ -14,6 +15,12 @@ const { book } = Astro.props;
 const { Content } = await render(book);
 ---
 
-<BookPostLayout frontmatter={book.data}>
+<PostLayout
+  title={book.data.title}
+  description={`Notes on ${book.data.title} by ${book.data.author}`}
+  byline={book.data.author}
+  backHref="/books"
+  backLabel="Back to books"
+>
   <Content />
-</BookPostLayout>
+</PostLayout>

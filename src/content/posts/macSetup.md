@@ -1,6 +1,7 @@
 ---
 title: Setting Up a New Mac
 date: 2026-05-10
+description: "Installs and config changes for my first new Mac in seven years."
 ---
 
 First new Mac in 7 years. Nice to have a clean slate. Installs and config changes so far:

@@ -1,6 +1,7 @@
 ---
 title: Super Minimal Strength Logging with Hono TSX, Workers and D1
 date: 2026-05-24
+description: "A pared-back strength logger built with Hono TSX, Cloudflare Workers and D1."
 ---
 
 I've built many workout logging ideas over the years and have finally honed in on a pared-back shape:

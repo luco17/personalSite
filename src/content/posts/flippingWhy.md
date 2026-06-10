@@ -1,6 +1,7 @@
 ---
 title: Flipping "Why" questions
 date: 2025-01-12
+description: "Turning 'why' questions into 'how' and 'what' questions, after Chris Voss's Never Split the Difference."
 ---
 
 I’ve been reading Chris Voss’s “Never Split the Difference”. It’s got some alpha but I suspect there’s more in KGB agent running manuals that is lost to language differences and cultural bias.

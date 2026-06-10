@@ -1,5 +1,5 @@
 import { z, defineCollection } from "astro:content";
-import { glob } from "astro/loaders";
+import { glob, file } from "astro/loaders";
 
 const books = defineCollection({
   loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/books" }),
@@ -7,7 +7,8 @@ const books = defineCollection({
     title: z.string(),
     author: z.string(),
     date: z.date(),
-    link: z.boolean(),
+    // Publish switch: only books with link: true get a notes page and an index link.
+    link: z.boolean().default(false),
   }),
 });
 
@@ -16,6 +17,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.date(),
+    description: z.string().optional(),
   }),
 });
 
@@ -27,4 +29,21 @@ const til = defineCollection({
   }),
 });
 
-export const collections = { books, posts, til };
+const quotes = defineCollection({
+  loader: file("src/data/quotes.yaml"),
+  schema: z.object({
+    text: z.string(),
+    attribution: z.string(),
+  }),
+});
+
+const links = defineCollection({
+  loader: file("src/data/links.yaml"),
+  schema: z.object({
+    title: z.string(),
+    url: z.string().url(),
+    month: z.string().regex(/^\d{4}-\d{2}$/),
+  }),
+});
+
+export const collections = { books, posts, til, quotes, links };
