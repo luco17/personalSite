@@ -1,71 +1,120 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { env } from "cloudflare:workers";
 
-// Force SSR mode
+type WallPost = {
+  id: number;
+  content: string;
+  created_at: string;
+};
+
+const pageSize = 50;
+
+const parseCreatedAt = (value: string) => {
+  const isoValue = value.includes("T") ? value : `${value.replace(" ", "T")}Z`;
+  const date = new Date(isoValue);
+  return Number.isNaN(date.getTime()) ? null : date;
+};
+
+const formatDate = (value: string) => {
+  const date = parseCreatedAt(value);
+  if (!date) return value;
+
+  const formattedDate = date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "Europe/London",
+  });
+  const formattedTime = date.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/London",
+  });
+  return `${formattedDate}, ${formattedTime}`;
+};
+
+const dateTimeAttribute = (value: string) => parseCreatedAt(value)?.toISOString();
+
+const parseBefore = (value: string | null) => {
+  if (!value) return null;
+
+  const date = parseCreatedAt(value);
+  if (!date) return null;
+
+  return value.includes("T")
+    ? date.toISOString().replace("T", " ").slice(0, 19)
+    : value;
+};
+
+const escapeHtml = (value: string) =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+
+const trailingUrlPunctuation = /[),.;:!?]+$/;
+const urlPattern = /https?:\/\/[^\s<>"']+/g;
+
+const linkify = (value: string) =>
+  escapeHtml(value).replace(urlPattern, (url) => {
+    const punctuation = url.match(trailingUrlPunctuation)?.[0] ?? "";
+    const href = url.slice(0, url.length - punctuation.length);
+    return `<a href="${href}">${href}</a>${punctuation}`;
+  });
+
+const wallPostsQuery = `
+  SELECT id, content, created_at
+  FROM entries
+  WHERE hidden_at IS NULL AND (? IS NULL OR created_at < ?)
+  ORDER BY created_at DESC
+  LIMIT ?
+`;
+
 export const prerender = false;
 
-const { searchParams } = Astro.url;
-const nParam = searchParams.get("n");
-const n = nParam ? parseInt(nParam, 10) : 20;
+Astro.response.headers.set(
+  "Cache-Control",
+  "public, max-age=30, stale-while-revalidate=300",
+);
 
-let posts = [];
+const before = parseBefore(Astro.url.searchParams.get("before"));
+let posts: WallPost[] = [];
 let errorMsg = "";
 
 try {
-  const db = Astro.locals.runtime?.env?.pensieve_db;
-  if (!db) {
-    throw new Error("pensieve_db binding is missing. Ensure the D1 binding is configured in Cloudflare.");
-  }
-  
-  const { results } = await db
-    .prepare("SELECT id, content, created_at, source FROM brain_dump WHERE is_hidden = 0 ORDER BY created_at DESC LIMIT ?")
-    .bind(n)
-    .all();
-    
-  posts = results || [];
-} catch (e: any) {
-  console.error("D1 Fetch Error:", e);
-  errorMsg = e.message;
+  const { results } = await env.pensieve_db
+    .prepare(wallPostsQuery)
+    .bind(before, before, pageSize)
+    .all<WallPost>();
+
+  posts = results;
+} catch (error: unknown) {
+  console.error("Wall entries could not be loaded", error);
+  errorMsg = "The wall is temporarily unavailable.";
 }
 
-const formatDate = (dateStr: string) => {
-  try {
-    const d = new Date(dateStr);
-    if (isNaN(d.getTime())) return dateStr;
-    const formattedDate = d.toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    });
-    const formattedTime = d.toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-    return `${formattedDate}, ${formattedTime}`;
-  } catch {
-    return dateStr;
-  }
-};
+const oldestPost = posts.at(-1);
+const olderUrl = oldestPost
+  ? `/wall?before=${encodeURIComponent(oldestPost.created_at)}`
+  : null;
+const moreRecentUrl = before ? "/wall" : null;
 ---
 
-<Layout title="LOD - Wall" description="Live stream of thoughts and notes captured from Telegram and CLI.">
-  <main>
-    <header>
-      <div class="title-bar">
-        <h1>Wall</h1>
-        <button id="refresh-btn" class="refresh-trigger">refresh</button>
-      </div>
-    </header>
+<Layout title="LOD - Wall" description="Recent notes and clips.">
+  <main class="wall">
+    <h1>Wall</h1>
+    <hr />
 
     {errorMsg && (
-      <div class="error-banner">
-        <strong>Database Connection Error:</strong>
+      <div class="error-banner" role="status">
         <p>{errorMsg}</p>
       </div>
     )}
 
     {!errorMsg && posts.length === 0 && (
-      <p class="empty-state">No thoughts captured yet. Send some notes via pensieve CLI or Telegram.</p>
+      <p class="empty-state">No notes yet.</p>
     )}
 
     {!errorMsg && posts.length > 0 && (
@@ -73,95 +122,49 @@ const formatDate = (dateStr: string) => {
         {posts.map((post) => (
           <article class="post-item">
             <div class="post-header">
-              <time class="post-date">{formatDate(post.created_at)}</time>
-              <span>•</span>
-              <span class="post-source">via {post.source}</span>
+              <time class="post-date" datetime={dateTimeAttribute(post.created_at)}>
+                {formatDate(post.created_at)}
+              </time>
             </div>
-            <div class="post-body">{post.content}</div>
+            <div class="post-body" set:html={linkify(post.content)} />
           </article>
         ))}
       </div>
     )}
 
     <footer class="footer-controls">
-      <span>Thoughts captured live</span>
-      <div class="limit-links">
-        <span>limit:</span>
-        <a href="?n=10" class={`limit-link ${n === 10 ? 'active' : ''}`}>10</a>
-        <a href="?n=20" class={`limit-link ${n === 20 ? 'active' : ''}`}>20</a>
-        <a href="?n=50" class={`limit-link ${n === 50 ? 'active' : ''}`}>50</a>
-        <a href="?n=100" class={`limit-link ${n === 100 ? 'active' : ''}`}>100</a>
-      </div>
+      {moreRecentUrl && (
+        <a class="wall-page-link" href={moreRecentUrl}>&larr; More recent</a>
+      )}
+      {olderUrl && (
+        <a class="wall-page-link older-link" href={olderUrl}>Older &rarr;</a>
+      )}
     </footer>
   </main>
 </Layout>
 
-<script>
-  // Handle refresh button click
-  const refreshBtn = document.getElementById("refresh-btn");
-  if (refreshBtn) {
-    refreshBtn.addEventListener("click", () => {
-      window.location.reload();
-    });
-  }
-</script>
-
 <style>
-  main {
+  .wall {
+    font-size: 1rem;
     margin-block: 1rem;
   }
 
-  header {
-    margin-bottom: 1.5rem;
-  }
-
-  .title-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
-  }
-
   h1 {
-    font-size: 1.35rem;
     font-weight: 600;
-    margin: 0;
   }
 
-  .refresh-trigger {
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-decoration: none;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px dashed var(--muted);
-    background: transparent;
-    padding: 0;
-    cursor: pointer;
-    font-family: inherit;
-  }
-
-  .refresh-trigger:hover {
-    color: var(--color);
-    border-bottom-color: var(--color);
-  }
-
-  /* Compact Stack List */
   .stack {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
+    margin-top: 1.5rem;
   }
 
   .post-item {
-    padding-block: 1rem;
-    border-bottom: 1px solid var(--border);
+    margin-block: 0;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid #ececec;
   }
 
   .post-item:first-of-type {
-    padding-top: 0.5rem;
+    padding-top: 0;
   }
 
   .post-item:last-of-type {
@@ -169,19 +172,12 @@ const formatDate = (dateStr: string) => {
   }
 
   .post-header {
-    font-size: 0.8rem;
-    color: var(--muted);
+    color: #777;
+    font-family:
+      ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
+      monospace;
+    font-size: 0.75rem;
     margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .post-source {
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    font-size: 0.72rem;
   }
 
   .post-body {
@@ -189,7 +185,6 @@ const formatDate = (dateStr: string) => {
     line-height: 1.45;
   }
 
-  /* Error Banner */
   .error-banner {
     background: #fff0f0;
     border-left: 4px solid #ff3b30;
@@ -211,41 +206,56 @@ const formatDate = (dateStr: string) => {
     margin: 2rem 0;
   }
 
-  /* Footer Controls */
   .footer-controls {
     margin-top: 2rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
+    padding-top: 0.85rem;
+    border-top: 1px solid #ececec;
     display: flex;
     justify-content: space-between;
-    font-size: 0.8rem;
-    color: var(--muted);
+    gap: 1rem;
+    font-size: 0.78rem;
+    color: #777;
   }
 
-  .limit-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .limit-link {
-    color: var(--muted);
+  .footer-controls a {
+    border-radius: 999px;
+    color: #777;
+    line-height: 1;
+    padding: 0.35rem 0.55rem;
     text-decoration: none;
-    padding: 0.1rem 0.3rem;
   }
 
-  .limit-link.active {
-    color: var(--color);
-    font-weight: bold;
-    text-decoration: underline;
+  .footer-controls a:visited {
+    color: #777;
   }
 
-  .limit-link:hover {
-    color: var(--color);
+  .footer-controls a:hover {
+    background: #f6f6f6;
+    color: #111;
   }
 
-  /* Dark Mode Support overrides */
+  .older-link {
+    margin-left: auto;
+  }
+
   @media (prefers-color-scheme: dark) {
+    .post-item,
+    .footer-controls {
+      border-color: #222;
+    }
+
+    .post-header,
+    .footer-controls,
+    .footer-controls a,
+    .footer-controls a:visited {
+      color: #888;
+    }
+
+    .footer-controls a:hover {
+      background: #1b1b1b;
+      color: #fff;
+    }
+
     .error-banner {
       background: #2a1111;
       color: #ffb3b3;
