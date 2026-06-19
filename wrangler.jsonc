@@ -1,0 +1,20 @@
+{
+	"compatibility_date": "2026-06-19",
+	"compatibility_flags": ["global_fetch_strictly_public"],
+	"name": "personal-site",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "pensieve_db",
+			"database_name": "pensieve-db",
+			"database_id": "128713ad-e81f-4bae-9c74-af58734f4e17"
+		}
+	]
+}

@@ -23,3 +23,7 @@ pnpm-debug.log*
 # Antigravity CLI state
 .antigravitycli/
 
+# Cloudflare Wrangler state/types
+.wrangler/
+worker-configuration.d.ts
+

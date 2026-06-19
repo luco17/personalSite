@@ -8,7 +8,7 @@ Personal website built with Astro. It is mainly a place for:
 - links
 - a few static pages
 
-The site is intentionally simple: mostly server-rendered pages, plain HTML, and CSS.
+The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 
 ## Quick Map
 
@@ -25,6 +25,7 @@ The site is intentionally simple: mostly server-rendered pages, plain HTML, and 
 - Use the current request date by default unless told otherwise.
 - Use UK English in prose and documentation.
 - Keep copy concise and direct.
+- **TILs/Notes Style**: Keep drafts punchy, direct, and conversational. Ground them in real-world context. Avoid formal headers/bullet lists unless requested.
 
 ## Links
 
