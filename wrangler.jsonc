@@ -2,6 +2,7 @@
 	"compatibility_date": "2026-06-19",
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "personal-site",
+	"account_id": "2c1d204150674376e228a51b37f391e2",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
