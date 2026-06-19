@@ -16,12 +16,12 @@
     "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.3.6",
-    "typescript": "^5.3.3",
+    "astro": "^6.4.8",
+    "typescript": "^6.0.3",
     "wrangler": "^4.102.0"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.8.4"
   },
   "overrides": {
     "vite": "^7"
