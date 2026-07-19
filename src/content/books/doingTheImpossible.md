@@ -5,7 +5,7 @@ date: 2026-07-19
 link: true
 ---
 
-Look at George Mueller's management of NASA. Speed read after the re-org bits.
+A look at George Mueller's management of NASA. Speed read after the re-org bits.
 
 1. Mueller joins having helped run the ICBM programme in the 50s.
 
