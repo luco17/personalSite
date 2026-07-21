@@ -118,6 +118,10 @@
   title: Solving the out-of-context chunk problem for RAG
   url: https://news.ycombinator.com/item?id=41034297
   month: 2025-08
+- id: 85
+  title: Who's afraid of Chinese models?
+  url: https://stratechery.com/2026/whos-afraid-of-chinese-models/
+  month: 2025-07
 - id: 30
   title: What are OKLCH colors?
   url: https://jakub.kr/components/oklch-colors
