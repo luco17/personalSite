@@ -51,4 +51,4 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 
 ## Posts
 
-- Posts may set an optional `description` in frontmatter; it feeds the meta description and the RSS feed.
+- Posts may set an optional `description` in frontmatter; it feeds the meta description.
