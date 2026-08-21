@@ -5,12 +5,21 @@ import "@/styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  type?: "website" | "article";
+  image?: string;
 }
 
 const {
   title,
   description = "Welcome! I hope you find something of interest here. Lucien",
+  type = "website",
+  image = "/og-weasel.png",
 } = Astro.props;
+
+const site = Astro.site ?? Astro.url;
+const canonicalUrl = new URL(Astro.url.pathname, site);
+const imageUrl = new URL(image, site);
+const imageAlt = "Pixel-art weasel standing in grass against a blue sky";
 ---
 
 <!doctype html>
@@ -20,8 +29,23 @@ const {
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/weaselOg.ico" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="LOD" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script defer data-domain="lcod.uk" src="https://plausible.io/js/script.js"

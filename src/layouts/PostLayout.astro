@@ -12,7 +12,7 @@ interface Props {
 const { title, description, byline, backHref, backLabel } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} type="article">
   <main>
     <p>
       <a href={backHref} class="group">
