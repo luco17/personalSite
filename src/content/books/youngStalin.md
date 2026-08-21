@@ -13,7 +13,7 @@ link: true
 
 4. Tiflis bank robbery to raise Bolshevik funds in 1907. Stalin nowhere to be seen although it was later claimed that he was at the centre of the action. The author places him in the railway station at mid-morning. Where He could keep in easy contact with his network of porters and urchins. "If these artful dodgers brought bad news, he would jump on a train and disappear." This shows his nose for clandestine tradecraft even back then!
 
-5. Issues with disinformation - sea of information. Reminds me of pre 9/11. How to sift? "Cossacks and gendarmes act rounded up the usual suspects. Every informer, every double agent was tapped for information and duly delivered a farrago of versions, none of them actually fingering the real culprits."
+5. Issues with disinformation - sea of information. Reminds me of pre 9/11. How to sift? "Cossacks and gendarmes rounded up the usual suspects. Every informer, every double agent was tapped for information and duly delivered a farrago of versions, none of them actually fingering the real culprits."
 
 6. Stalin gets into the Seminary: "The lame, pockmarked, web-toed boy, humiliatingly beaten and deserted by his father, adored but beaten some more by a single mother, had overcome the odds. It is hard to exaggerate what a vital moment this was. Without the seminary, without the mother's determination. Soso would have missed the classical education that equipped the Cobbler's son to become Lenin's successor."
 
