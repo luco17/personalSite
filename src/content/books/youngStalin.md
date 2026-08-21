@@ -5,7 +5,7 @@ date: 2024-07-24
 link: true
 ---
 
-1. "The violence and clannishness of the Caucasians, men like Stalin, played a special role in the formation of the USSR... They were the essence of the committee men, who formed the heart of the Bolshevik Party and were likely to support Stalin... Such types took the brutality of the civil war because, like Stalin, indeed alongside him, they had been raised in the same streets, had shared gang warfare, clan rivalries, and ethnic slaughter, and embraced the same culture of violence. "
+1. "The violence and clannishness of the Caucasians, men like Stalin, played a special role in the formation of the USSR... They were the essence of the committee men, who formed the heart of the Bolshevik Party and were likely to support Stalin... Such types took to the brutality of the civil war because, like Stalin, indeed alongside him, they had been raised in the same streets, had shared gang warfare, clan rivalries, and ethnic slaughter, and embraced the same culture of violence. "
 
 2. "Much of the tragedy of Leninism-Stalinism is comprehensible only if one realises that the Bolsheviks continued to behave in the same clandestine manner whether they form the government of the world's greatest empire in the Kremlin or an obscure little cabal in the back room of a Tiflis tavern. "
 
