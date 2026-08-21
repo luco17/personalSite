@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = "Welcome! I hope you find something of interest here. Lucien",
+  description = "LOD musings. Tech, finance, fitness, history, maths, systems, people, orgs.",
   type = "website",
   image = "/og-weasel.png",
 } = Astro.props;
@@ -19,7 +19,7 @@ const {
 const site = Astro.site ?? Astro.url;
 const canonicalUrl = new URL(Astro.url.pathname, site);
 const imageUrl = new URL(image, site);
-const imageAlt = "Pixel-art weasel standing in grass against a blue sky";
+const imageAlt = "Pixel-art weasel";
 ---
 
 <!doctype html>
