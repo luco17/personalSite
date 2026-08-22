@@ -10,6 +10,11 @@ body {
   font-size: 1.15em;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Typography */
 p {
   line-height: 1.35em;
@@ -126,4 +131,3 @@ article p:first-of-type {
     background: #222222;
   }
 }
-
