@@ -15,6 +15,19 @@ img {
   height: auto;
 }
 
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.1em;
+  transition:
+    text-decoration-thickness 120ms ease,
+    text-underline-offset 120ms ease;
+}
+
+a:hover {
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.14em;
+}
+
 /* Typography */
 p {
   line-height: 1.35em;
