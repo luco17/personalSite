@@ -114,6 +114,7 @@ article p:first-of-type {
 
 .animate-arrow-spring {
   display: inline-block;
+  margin-inline-end: 0.3em;
 }
 
 .group:hover .animate-arrow-spring {
