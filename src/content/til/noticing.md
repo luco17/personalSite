@@ -1,3 +1,8 @@
+---
+title: What to notice
+date: 2026-08-27
+---
+
 # What to notice
 - Moments of hesitation — What caused it? Uncertainty about consequences? Lack of trust? Something else?
 - Expectation gaps — Where did your mental model break? What did you assume would happen, and why? What would have met your expectation?
