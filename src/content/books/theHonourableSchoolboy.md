@@ -13,3 +13,5 @@ date: 2026-08-25
 4. Smiley’s diligence: “In order to screw down every bolt…”
 
 5. “His smile went with him everywhere. One of the typists declared that he slept in it and hand washed it at weekends.”
+
+6. “A general is nothing without priorities”
