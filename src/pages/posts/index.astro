@@ -7,7 +7,7 @@ const allPosts = await getCollection("posts");
 ---
 
 <Layout title="LOD - Posts" description="The occasional article.">
-  <main>
+  <main id="main-content" tabindex="-1">
     <h1>Posts</h1>
     <hr />
     <ul>
@@ -21,6 +21,7 @@ const allPosts = await getCollection("posts");
         ))
       }
     </ul>
+    <p><a href="/rss.xml">Subscribe via RSS</a></p>
   </main>
 </Layout>
 

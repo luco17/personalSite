@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run generate-types && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.10",
     "@astrojs/cloudflare": "^14.2.5",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^7.2.9",
     "typescript": "^6.0.3",

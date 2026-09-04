@@ -16,7 +16,7 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 - `src/content/posts/`: post content
 - `src/content/books/`: book notes
 - `src/content/til/`: TIL notes
-- `src/data/links.yaml`: links data (rendered by `src/pages/links.astro`)
+- `src/data/links.yaml`: saved links (merged into `src/pages/wall.astro`)
 - `src/data/quotes.yaml`: quotes data (rendered by `src/pages/quotes.astro`)
 - `src/content.config.ts`: content collection schemas
 
@@ -35,7 +35,8 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
   - `title`: link text
   - `url`: the link
   - `month`: the request month as `"YYYY-MM"`
-- The links page groups and orders months automatically; within a month, entries render in id order.
+- The Wall merges saved links with notes before pagination. Links retain month-only dates and render in id order within each month; the month start is only an internal sorting key, not an exact discovery date.
+- Keep historical links in YAML; do not copy them into D1. `/links` redirects to `/wall` for existing bookmarks.
 
 ## Quotes
 

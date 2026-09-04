@@ -4,9 +4,12 @@ import "@/styles/global.css";
 
 interface Props {
   title: string;
-  description?: string;
+  description?: string | null;
   type?: "website" | "article";
   image?: string;
+  canonicalPath?: string;
+  noindex?: boolean;
+  publishedDate?: Date;
 }
 
 const {
@@ -14,44 +17,57 @@ const {
   description = "LOD musings. Tech, finance, fitness, history, maths, systems, people, orgs.",
   type = "website",
   image = "/og-weasel.png",
+  canonicalPath,
+  noindex = false,
+  publishedDate,
 } = Astro.props;
 
 const site = Astro.site ?? Astro.url;
-const canonicalUrl = new URL(Astro.url.pathname, site);
+// Static pages use directory URLs. A caller may retain validated pagination.
+const pathname = Astro.url.pathname;
+const canonicalUrl = new URL(
+  canonicalPath ?? (noindex || pathname.endsWith("/") ? pathname : `${pathname}/`),
+  site,
+);
 const imageUrl = new URL(image, site);
 const imageAlt = "Pixel-art weasel";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    {description && <meta name="description" content={description} />}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    {noindex && <meta name="robots" content="noindex" />}
     <link rel="icon" type="image/x-icon" href="/weaselOg.ico" />
-    <link rel="canonical" href={canonicalUrl} />
+    {!noindex && <link rel="canonical" href={canonicalUrl} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="LOD — posts and notes" href={new URL("/rss.xml", site)} />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content="LOD" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={canonicalUrl} />
+    {publishedDate && <meta property="article:published_time" content={publishedDate.toISOString()} />}
     <meta property="og:image" content={imageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    {description && <meta name="twitter:description" content={description} />}
     <meta name="twitter:image" content={imageUrl} />
     <meta name="twitter:image:alt" content={imageAlt} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <script defer data-domain="lcod.uk" src="https://plausible.io/js/script.js"
+    <script is:inline defer data-domain="lcod.uk" src="https://plausible.io/js/script.js"
     ></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Nav />
     <slot />
   </body>

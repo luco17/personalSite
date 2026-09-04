@@ -8,6 +8,8 @@ body {
   padding: 1rem;
   max-width: 720px;
   font-size: 1.15em;
+  line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 img {
@@ -18,21 +20,34 @@ img {
 a {
   text-decoration-thickness: 1px;
   text-underline-offset: 0.1em;
-  transition:
-    text-decoration-thickness 120ms ease,
-    text-underline-offset 120ms ease;
 }
 
-a:hover {
+a:is(:hover, :focus-visible) {
   text-decoration-thickness: 1.5px;
   text-underline-offset: 0.14em;
 }
 
-/* Typography */
-p {
-  line-height: 1.35em;
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  z-index: 1;
+  padding: 0.5rem 0.75rem;
+  background: Canvas;
+  color: LinkText;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Typography */
 code {
   font-family:
     Menlo,
@@ -117,8 +132,16 @@ article p:first-of-type {
   margin-inline-end: 0.3em;
 }
 
-.group:hover .animate-arrow-spring {
-  animation: arrow-spring 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+@media (prefers-reduced-motion: no-preference) {
+  a {
+    transition:
+      text-decoration-thickness 120ms ease,
+      text-underline-offset 120ms ease;
+  }
+
+  .group:is(:hover, :focus-visible) .animate-arrow-spring {
+    animation: arrow-spring 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
 }
 
 /* Dark mode */
@@ -132,7 +155,7 @@ article p:first-of-type {
     color: lightskyblue;
   }
 
-  a:hover {
+  a:is(:hover, :focus-visible) {
     color: lightseagreen;
   }
 

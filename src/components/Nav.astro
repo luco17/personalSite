@@ -1,9 +1,20 @@
 ---
 // The site title is the homepage's h1; elsewhere it's decorative.
-const isHome = Astro.url.pathname === "/";
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isHome = pathname === "/";
+const pages = [
+  { href: "/", label: "Home" },
+  { href: "/wall", label: "Wall" },
+  { href: "/books", label: "Books" },
+  { href: "/quotes", label: "Quotes" },
+  { href: "/til", label: "TIL" },
+  { href: "/projects", label: "Projects" },
+  { href: "/posts", label: "Posts" },
+  { href: "/fitness", label: "Fitness" },
+];
 ---
 
-<nav>
+<nav aria-label="Main">
   {
     isHome ? (
       <h1 class="site-title">Lucien O</h1>
@@ -12,15 +23,15 @@ const isHome = Astro.url.pathname === "/";
     )
   }
   <div>
-    <a href="/" data-astro-prefetch>Home</a>
-    <a href="/wall" data-astro-prefetch>Wall</a>
-    <a href="/books" data-astro-prefetch>Books</a>
-    <a href="/links" data-astro-prefetch>Links</a>
-    <a href="/quotes" data-astro-prefetch>Quotes</a>
-    <a href="/til" data-astro-prefetch>TIL</a>
-    <a href="/projects" data-astro-prefetch>Projects</a>
-    <a href="/posts" data-astro-prefetch>Posts</a>
-    <a href="/fitness" data-astro-prefetch>Fitness</a>
+    {pages.map(({ href, label }) => (
+      <a
+        href={href === "/" ? href : `${href}/`}
+        aria-current={pathname === href ? "page" : href !== "/" && pathname.startsWith(`${href}/`) ? "location" : undefined}
+        data-astro-prefetch={href === "/wall" ? "tap" : "hover"}
+      >
+        {label}
+      </a>
+    ))}
   </div>
 </nav>
 <style>
@@ -36,7 +47,42 @@ const isHome = Astro.url.pathname === "/";
     display: flex;
     flex-wrap: wrap;
     column-gap: 0.65rem;
-    row-gap: 0.15rem;
+    row-gap: 0.25rem;
   }
 
+  nav a {
+    position: relative;
+    display: inline-block;
+    padding-block: 0.3rem;
+    text-decoration: none;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0.15rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  nav a:is(:hover, :focus-visible, [aria-current])::after {
+    transform: scaleX(1);
+  }
+
+  nav a[aria-current] {
+    color: inherit;
+  }
+
+  nav a[aria-current]::after {
+    height: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    nav a::after {
+      transition: transform 160ms ease-out;
+    }
+  }
 </style>

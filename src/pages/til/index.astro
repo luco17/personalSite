@@ -7,7 +7,7 @@ const allTil = await getCollection("til");
 ---
 
 <Layout title="LOD - TIL" description="Things I learned today.">
-  <main>
+  <main id="main-content" tabindex="-1">
     <h1>TIL</h1>
     <p>Things I learned today.</p>
     <hr />
@@ -18,11 +18,12 @@ const allTil = await getCollection("til");
         .map((til) => (
           <li>
             <a href={`/til/${til.id}/`} data-astro-prefetch>{til.data.title}</a>
-            <span class="date"> - {til.data.date.toDateString()}</span>
+            <span class="date"> - <time datetime={til.data.date.toISOString().slice(0, 10)}>{til.data.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></span>
           </li>
         ))
       }
     </ul>
+    <p><a href="/rss.xml">Subscribe via RSS</a></p>
   </main>
 </Layout>
 
