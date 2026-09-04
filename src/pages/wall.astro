@@ -148,10 +148,16 @@ const monthLabel = (month: string) =>
 
     <footer class="footer-controls">
       {moreRecentUrl && (
-        <a class="wall-page-link" href={moreRecentUrl}>&larr; More recent</a>
+        <a class="wall-page-link group" href={moreRecentUrl}>
+          <span class="animate-arrow-spring" aria-hidden="true">&larr;</span>
+          More recent
+        </a>
       )}
       {olderUrl && (
-        <a class="wall-page-link older-link" href={olderUrl}>Older &rarr;</a>
+        <a class="wall-page-link older-link group" href={olderUrl}>
+          Older
+          <span class="animate-arrow-spring arrow-right" aria-hidden="true">&rarr;</span>
+        </a>
       )}
     </footer>
   </main>

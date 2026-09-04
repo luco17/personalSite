@@ -7,13 +7,13 @@ link: true
 
 Interesting bits below
 
-### Getting things in proportion
+## Getting things in proportion
 
 1. There was a famous headline claiming processed meat increases the risk of bowel cancer by 18%. This sounds like a baseline risk 6% increasing to 24% by eating processed meat. But the headline confused _relative risk_ with _absolute risk_. To calculate the relative risk you multiply 6% by 18% (0.06 \* 1.18) and get 7.08%, an increase in absolute risk of 1.8%!
 
 2. Odds ratios are useful for unlikely events, but less useful for common events.
 
-### What causes what
+## What causes what
 
 3. Non-drinkers are often reported to have higher death rates than moderate drinkers. This is likely partly attributable to _reverse causation_ - those people who are most likely to die do not drink because they are ill already. More careful analyses exclude ex-drinkers, and also ignore adverse health events in the first few years of the study, since these may be due to pre-existing conditions.
 
@@ -23,13 +23,13 @@ Interesting bits below
 
 6. [Austin Bradford Hill](https://en.wikipedia.org/wiki/Austin_Bradford_Hill) set the gold standard for Randomised Control Trials (RCTs) in the early 50s with Streptomycin - a med for tuberculosis. This RCT was influenced by [Ronald Fisher's](https://en.wikipedia.org/wiki/Ronald_Fisher) work in agriculture. See also the [Bradford Hill criteria](https://en.wikipedia.org/wiki/Bradford_Hill_criteria).
 
-### Modelling relationships using regression
+## Modelling relationships using regression
 
 7. The slope of the estimator is given by Covar(x,y)/Var(x). Intercept by Ave(y)-Slope(Ave(x)).
 
 8. Logistic regression ensures curves can't go above or below 100% or 0% i.e. it's used to estimate the probability of an event occurring.
 
-### Algorithms, analytics, and prediction
+## Algorithms, analytics, and prediction
 
 9. Build a model to predict survival rates on the Titanic. If you done a really simple heuristic, all men die, all women survive, your model will be right 78% of the time! Comparing simple heuristics to more complex approaches is always a valuable sense check.
 
@@ -53,7 +53,7 @@ Interesting bits below
 
 19. An algorithm trained to discriminate pictures of huskies from Alsatians was very effective until used on huskies kept indoors. The model was relying on the snow in the background, rather than anything about the dogs themselves.
 
-### Margin of error
+## Margin of error
 
 20. ONS announces unemployment falls by 3000 people. Papers report as such. What they miss is that the margin of error was plus-minus 77k! So it could have fallen 80k or risen by 74k.
 
@@ -65,17 +65,17 @@ Interesting bits below
 
 24. The more samples you take, the more the distribution of sample means tends towards the form of a normal distribution. See [central limit theorem](https://en.wikipedia.org/wiki/Central_limit_theorem). Ultimately this allows us to quantify our uncertainty about the sample estimates.
 
-### Probability
+## Probability
 
 25. The Poisson distribution is useful for modelling the probability of counts of discrete events, e.g. the number of winning lottery tickets each week.
 
-### Putting probability and statistics together
+## Putting probability and statistics together
 
 26. Bernoulli trials are experiments with a 'success/fail' outcome. Results of repeated trials follow a binomial distribution, a single Bernoulli experiment has a Bernoulli distribution.
 
 27. A 95% confidence interval suggests that if the same experiment were repeated multiple times, 95% of such intervals should contain the true value.
 
-### Answering questions and claiming discoveries
+## Answering questions and claiming discoveries
 
 28. The null hypothesis is what we are willing to assume is the case until proven otherwise. A null hypothesis is never proved, but is possibly disproved. An analogy: a defendant can be found guilty, but nobody is ever found innocent, simply not proven guilty.
 

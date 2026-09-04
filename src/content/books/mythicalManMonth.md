@@ -42,7 +42,7 @@ Interesting stuff but I think his report for the "Defense Science Board" is a be
 
 16. Rarely will someone lie about milestone progress, if the milestone is so sharp that he can't deceive himself.
 
-### No silver bullet
+## No silver bullet
 
 17. As we look to the horizon of a decade hence, we see no silver bullet. There is no single development, in either technology or management technique, which by itself promises even one order of magnitude improvement in productivity, in reliability, in simplicity.
 
@@ -50,7 +50,7 @@ Interesting stuff but I think his report for the "Defense Science Board" is a be
 
 19. Enthusiasm jumps when there is a running system, even a simple one. Efforts redouble when the first picture from a new graphics software system appears on the screen, even if it is only a rectangle... I find that teams can grow much more complex entities in four months than they can build.
 
-### Back to MMM
+## Back to MMM
 
 20. The programming project converges more slowly the nearer one gets to the end, whereas one expects it to converge faster as one approaches the end.
 

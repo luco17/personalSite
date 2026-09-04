@@ -6,6 +6,8 @@ The site should stay small, personal and mostly static. Its main opportunity is 
 
 Three subagents reviewed content and the Wall, discoverability, and design. The main review covered performance, integrated the changes and checked the built site. All changes below are proposals for review.
 
+Follow-up: the owner reviewed the changes and approved committing and pushing V4 and V7. V5 was declined. V6 was tried and removed after the owner rejected the divider accent. The four heading-level repairs in D8 are complete. These follow-up edits have not received another production build; the validation below records the original review build.
+
 ## Priority findings
 
 | Ref | Finding | Proposal in this branch |
@@ -69,7 +71,7 @@ Chrome DevTools trace tools were unavailable. No Lighthouse score, LCP, INP, CLS
 
 **D1 — Use consistent, meaningful URLs.** Static navigation now uses trailing slashes, matching the generated sitemap and avoiding the live static-page redirect observed at `/posts`. Both live Wall slash variants work; the proposal consistently uses `/wall/`. Archive canonicals retain only their validated cursor. Normal page canonicals discard tracking parameters. [Google canonical guidance](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
 
-**D2 — Add a small subscription surface.** `/rss.xml` contains **65 items: eight posts, 13 TIL and 44 published book notes**. Posts and TIL show a visible subscription link, and pages advertise the feed for reader autodiscovery. It uses the official Astro RSS helper at build time and adds no browser code. Wall database entries and external bookmarks are not in this feed; this keeps static publishing independent of D1. Book dates remain catalogue dates, rather than inferred publication dates. [Astro RSS](https://docs.astro.build/en/recipes/rss/)
+**D2 — Add a small subscription surface.** `/rss.xml` contains **65 items: eight posts, 13 TIL and 44 published book notes**. Posts shows a visible subscription link; the TIL link was removed at the owner's request. Pages still advertise the feed for reader autodiscovery. It uses the official Astro RSS helper at build time and adds no browser code. Wall database entries and external bookmarks are not in this feed; this keeps static publishing independent of D1. Book dates remain catalogue dates, rather than inferred publication dates. [Astro RSS](https://docs.astro.build/en/recipes/rss/)
 
 **D3 — Preserve publication boundaries.** Books without `link: true` still appear in the catalogue without publishing their notes. RSS applies the same filter. All matching post and TIL files publish at build time: there is no general draft/scheduling switch. No currently future-dated post or TIL was found. A new publishing system would be disproportionate here.
 
@@ -81,7 +83,7 @@ Chrome DevTools trace tools were unavailable. No Lighthouse score, LCP, INP, CLS
 
 **D7 — Keep the good crawlability foundation.** Native anchors, server-rendered content, robots.txt, social metadata and the sitemap were already present. All generated internal page links checked successfully. No `llms.txt`, keyword pages or speculative structured data was added. Google says its AI search features use ordinary search fundamentals and require no special AI text file; that is not a guarantee of inclusion, or a statement about every AI service. [Google AI search guidance](https://developers.google.com/search/docs/appearance/ai-features)
 
-**D8 — Small editorial cleanup remains.** Some older pieces start sections at H3 despite having no intervening H2, including `bonuses.md`, `theConsolationsOfPhilosophy.md`, `mythicalManMonth.md` and `theArtOfStatistics.md`. Normalise those when editing the pieces. External link rot and authenticated Search Console indexing were not comprehensively audited.
+**D8 — Skipped heading levels fixed in follow-up.** Changed section headings from H3 to H2 in `bonuses.md`, `theConsolationsOfPhilosophy.md`, `mythicalManMonth.md` and `theArtOfStatistics.md`. Heading text and body prose are unchanged. External link rot and authenticated Search Console indexing were not comprehensively audited.
 
 ## Understated design
 
@@ -91,16 +93,16 @@ Chrome DevTools trace tools were unavailable. No Lighthouse score, LCP, INP, CLS
 
 **V3 — Quiet layout details carry much of the improvement.** Navigation has larger hit areas and a visible focus treatment. Paragraphs and lists use a consistent 1.5 line height. Long URLs wrap. Wall metadata uses a darker grey in light mode, and pagination has larger targets and equivalent hover/focus feedback. The portrait now has the concrete alt text “Lucien O”.
 
-Try the following separately after reviewing the branch:
+Follow-up decisions on the remaining ideas:
 
 | Ref | Idea | Why it earns its place |
 | --- | --- | --- |
-| V4 | Small directional springs on Older / More recent arrows | Reuses the back-link vocabulary and reinforces direction. Keep the labels still. |
-| V5 | A soft target tint for a shared Wall entry | Helps readers locate the item they opened. Build stable permalinks first; current fragment IDs alone do not survive entries moving between pages. |
-| V6 | A quiet quotation-mark or rule accent on Quotes | Adds a distinctive static detail to a text-heavy page without another animation. |
-| V7 | Tabular numerals and consistent spacing for dates | A small typographic improvement that helps archive scanning. Trial on one list first. |
+| V4 | Small directional springs on Older / More recent arrows | KEEP: arrows spring in their respective directions; labels stay still. Hover and keyboard focus honour reduced motion. |
+| V5 | A soft target tint for a shared Wall entry | Declined; no permalink or highlight feature added. |
+| V6 | A quiet quotation-mark or rule accent on Quotes | DROP: the owner rejected the divider accent; the original divider is restored. |
+| V7 | Tabular numerals and consistent spacing for dates | KEEP: equal-width numerals on dates, unbroken date labels, and consistent spacing after TIL titles. |
 
-I would try V4 next. Avoid combining all of these at once; the plainness is part of the site's appeal.
+V4 and V7 were retained after the owner's review. V6 was rejected and removed.
 
 ## Validation and delivery
 
