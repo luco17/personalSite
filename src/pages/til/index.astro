@@ -8,17 +8,18 @@ const allTil = await getCollection("til");
 
 <Layout title="LOD - TIL" description="Things I learned today.">
   <main id="main-content" tabindex="-1">
-    <h1>TIL</h1>
-    <p>Things I learned today.</p>
+    <header class="page-heading">
+      <h1>TIL</h1>
+    </header>
     <hr />
-    <ul>
+    <ul class="entry-list">
       {
         allTil
         .sort(byDateDesc)
         .map((til) => (
           <li>
             <a href={`/til/${til.id}/`} data-astro-prefetch>{til.data.title}</a>
-            <span class="date"><time datetime={til.data.date.toISOString().slice(0, 10)}>{til.data.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></span>
+            <span class="entry-meta date"><time datetime={til.data.date.toISOString().slice(0, 10)}>{til.data.date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" })}</time></span>
           </li>
         ))
       }
@@ -27,24 +28,8 @@ const allTil = await getCollection("til");
 </Layout>
 
 <style>
-  ul {
-    padding-left: 1rem;
-  }
-
-  li {
-    padding: 4px 0;
-  }
-
   .date {
     display: inline-block;
     margin-inline-start: 0.6em;
-    font-size: 0.8rem;
-    color: darkslategrey;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .date {
-      color: ghostwhite;
-    }
   }
 </style>

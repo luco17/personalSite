@@ -78,6 +78,20 @@ pre {
   font-size: 0.9em;
 }
 
+/* Collection indexes */
+.entry-list {
+  padding-inline-start: 1rem;
+}
+
+.entry-list > li {
+  padding-block: 0.25rem;
+}
+
+.entry-meta {
+  font-size: 0.8rem;
+  color: darkslategrey;
+}
+
 /* Lists */
 ol {
   padding-left: 1.2rem;
@@ -94,6 +108,28 @@ blockquote {
 blockquote p {
   display: inline;
   font-style: italic;
+}
+
+/* Shared spacing from navigation to page content. */
+main {
+  margin-block: 2.5rem 1rem;
+}
+
+.page-heading {
+  margin-block: 0 0.75rem;
+}
+
+.page-heading h1 {
+  margin: 0;
+}
+
+main > .page-heading h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+.page-heading p {
+  margin-block: 0.75rem 0;
 }
 
 /* Sections and Articles */
@@ -175,6 +211,10 @@ article p:first-of-type {
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
+  .entry-meta {
+    color: ghostwhite;
+  }
+
   html {
     background-color: #111111;
     color: #fff;

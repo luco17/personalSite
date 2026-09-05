@@ -40,10 +40,18 @@ export const wallPostsQuery = `
   SELECT id, content, created_at
   FROM entries
   WHERE hidden_at IS NULL
+    AND instr(lower(content), lower(?)) > 0
     AND (? IS NULL OR created_at < ? OR (created_at = ? AND id < ?))
   ORDER BY created_at DESC, id DESC
   LIMIT ?
 `;
 
-export const wallCursorUrl = (entry: WallCursor) =>
-  `/wall/?${new URLSearchParams({ before: entry.created_at, id: String(entry.id) })}`;
+export const wallUrl = (entry: WallCursor | null = null, query = "") => {
+  const params = new URLSearchParams();
+  if (query) params.set("q", query);
+  if (entry) {
+    params.set("before", entry.created_at);
+    params.set("id", String(entry.id));
+  }
+  return params.size ? `/wall/?${params}` : "/wall/";
+};

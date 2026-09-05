@@ -8,9 +8,11 @@ const allPosts = await getCollection("posts");
 
 <Layout title="LOD - Posts" description="The occasional article.">
   <main id="main-content" tabindex="-1">
-    <h1>Posts</h1>
+    <header class="page-heading">
+      <h1>Posts</h1>
+    </header>
     <hr />
-    <ul>
+    <ul class="entry-list">
       {
         allPosts
         .sort(byDateDesc)
@@ -23,13 +25,3 @@ const allPosts = await getCollection("posts");
     </ul>
   </main>
 </Layout>
-
-<style>
-  ul {
-    padding-left: 1rem;
-  }
-
-  li {
-    padding: 4px 0;
-  }
-</style>

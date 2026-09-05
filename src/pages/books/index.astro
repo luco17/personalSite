@@ -11,21 +11,20 @@ const allBooks = await getCollection("books");
   description="A list of books I've read since 2021, with links to the ones I've written notes on."
 >
   <main id="main-content" tabindex="-1">
-    <h1>Books</h1>
-    <p>
-      A list of books I've read since 2021. I've linked to the books I've written notes on.
-    </p>
+    <header class="page-heading">
+      <h1>Books</h1>
+    </header>
     <hr />
-    <ul>
+    <ul class="entry-list">
       {
         allBooks
         .sort(byDateDesc)
         .map((book) => (
           <li>
             {book.data.link ? (
-              <a href={`/books/${book.id}/`} data-astro-prefetch>{book.data.title}</a><span class="author"> - {book.data.author}</span>
+              <a href={`/books/${book.id}/`} data-astro-prefetch>{book.data.title}</a><span class="entry-meta"> - {book.data.author}</span>
             ) : (
-              <span>{book.data.title} - </span><span class="author">{book.data.author}</span>
+              <span>{book.data.title} - </span><span class="entry-meta">{book.data.author}</span>
             )}
           </li>
         ))
@@ -33,24 +32,3 @@ const allBooks = await getCollection("books");
     </ul>
   </main>
 </Layout>
-
-<style>
-  ul {
-    padding-left: 1rem;
-  }
-
-  li {
-    padding: 4px 0;
-  }
-
-  .author {
-    font-size: 0.8rem;
-    color: darkslategrey;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .author {
-      color: ghostwhite;
-    }
-  }
-</style>

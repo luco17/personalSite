@@ -34,13 +34,32 @@ import lucienSqrSml from "@/assets/lucienSqrSml.webp";
 </Layout>
 
 <style>
-  main {
-    margin: 1rem 0;
+  article {
+    margin: 0;
   }
+
   img {
+    display: block;
     border-radius: 5%;
+    margin-bottom: 1.75rem;
   }
+
+  p {
+    margin-block: 0 1.5rem;
+    max-width: 65ch;
+  }
+
+  p + p {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
   ul {
-    padding-left: 1rem;
+    margin-block: 0;
+    padding-left: 1.2rem;
+  }
+
+  li + li {
+    margin-top: 0.35rem;
   }
 </style>

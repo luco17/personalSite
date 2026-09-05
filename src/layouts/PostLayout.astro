@@ -25,7 +25,7 @@ const formattedDate = date?.toLocaleDateString("en-GB", {
       </a>
     </p>
     <article>
-      <header>
+      <header class="page-heading">
         <h1>{title}</h1>
         {byline && <p>{byline}</p>}
         {date && <p><time datetime={date.toISOString().slice(0, 10)}>{formattedDate}</time></p>}
@@ -40,6 +40,5 @@ const formattedDate = date?.toLocaleDateString("en-GB", {
   /* Long entry titles read better a notch below the default h1 scale. */
   h1 {
     font-size: 1.5em;
-    margin-bottom: 0.5em;
   }
 </style>

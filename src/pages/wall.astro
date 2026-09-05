@@ -3,7 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import { env } from "cloudflare:workers";
 import {
   parseWallCursor,
-  wallCursorUrl,
+  wallUrl,
   wallPageSize,
   wallPostsQuery,
   type WallNote,
@@ -59,9 +59,10 @@ Astro.response.headers.set(
   "public, max-age=30, stale-while-revalidate=300",
 );
 
+const query = (Astro.url.searchParams.get("q") ?? "").trim();
 const before = parseWallCursor(Astro.url.searchParams);
 if (Astro.url.searchParams.has("before") && !before) {
-  return Astro.redirect("/wall/", 302);
+  return Astro.redirect(wallUrl(null, query), 302);
 }
 let notes: WallNote[] = [];
 let errorMsg = "";
@@ -70,6 +71,7 @@ try {
   const { results } = await env.pensieve_db
     .prepare(wallPostsQuery)
     .bind(
+      query,
       before?.created_at ?? null,
       before?.created_at ?? null,
       before?.created_at ?? null,
@@ -90,18 +92,30 @@ try {
 const hasMore = notes.length > wallPageSize;
 const entries = notes.slice(0, wallPageSize);
 const oldestEntry = entries.at(-1);
-const olderUrl = !errorMsg && hasMore && oldestEntry ? wallCursorUrl(oldestEntry) : null;
-const moreRecentUrl = before ? "/wall/" : null;
+const olderUrl = !errorMsg && hasMore && oldestEntry ? wallUrl(oldestEntry, query) : null;
+const moreRecentUrl = before ? wallUrl(null, query) : null;
 ---
 
 <Layout
   title="LOD - Wall"
   description="Notes, clips and links worth keeping."
-  canonicalPath={before ? wallCursorUrl(before) : "/wall/"}
+  canonicalPath={wallUrl(before, query)}
+  noindex={Boolean(query)}
 >
   <main class="wall" id="main-content" tabindex="-1">
-    <h1>Wall</h1>
-    <p class="wall-intro">Notes, clips and links worth keeping.</p>
+    <header class="page-heading wall-heading">
+      <h1>Wall</h1>
+      <form class="wall-search" action="/wall/" method="get" role="search">
+        <button type="submit" aria-label="Search" title="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path d="m16 16 4 4" />
+          </svg>
+        </button>
+        <input type="search" name="q" value={query} aria-label="Search the wall" placeholder="Search the wall" />
+        {query && <a href="/wall/" aria-label="Clear search" title="Clear search">×</a>}
+      </form>
+    </header>
     <hr />
 
     {errorMsg && (
@@ -111,7 +125,7 @@ const moreRecentUrl = before ? "/wall/" : null;
     )}
 
     {!errorMsg && entries.length === 0 && (
-      <p class="empty-state">Nothing here yet.</p>
+      <p class="empty-state">{query ? "No matching notes." : "Nothing here yet."}</p>
     )}
 
     {entries.length > 0 && (
@@ -148,16 +162,81 @@ const moreRecentUrl = before ? "/wall/" : null;
 
 <style>
   .wall {
+    --wall-muted: #666;
+    --wall-divider: #ececec;
     font-size: 1rem;
-    margin-block: 1rem;
   }
 
-  h1 {
-    font-weight: 600;
+  .wall-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem 1.5rem;
   }
 
-  .wall-intro {
-    line-height: 1.5;
+  .wall-search {
+    display: flex;
+    align-items: center;
+    width: 17rem;
+    min-width: 0;
+    max-width: 100%;
+    border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+    border-radius: 0.65rem;
+    background: color-mix(in srgb, currentColor 2%, transparent);
+    font-size: 0.875rem;
+  }
+
+  .wall-search:focus-within {
+    border-color: color-mix(in srgb, currentColor 55%, transparent);
+  }
+
+  .wall-search input,
+  .wall-search button {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .wall-search input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding-block: 0.35rem;
+  }
+
+  .wall-search input:focus-visible {
+    outline: none;
+  }
+
+  .wall-search input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .wall-search input::placeholder {
+    color: color-mix(in srgb, currentColor 55%, transparent);
+    opacity: 1;
+  }
+
+  .wall-search button,
+  .wall-search a {
+    display: grid;
+    place-items: center;
+    flex: 0 0 2rem;
+    min-height: 2rem;
+    color: color-mix(in srgb, currentColor 65%, transparent);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .wall-search a {
+    font-size: 1.2rem;
+  }
+
+  .wall-search :is(button, a):hover {
+    color: inherit;
   }
 
   .stack {
@@ -167,7 +246,7 @@ const moreRecentUrl = before ? "/wall/" : null;
   .post-item {
     margin-block: 0;
     padding-block: 1.25rem;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid var(--wall-divider);
   }
 
   .post-item:first-of-type {
@@ -179,7 +258,7 @@ const moreRecentUrl = before ? "/wall/" : null;
   }
 
   .post-header {
-    color: #666;
+    color: var(--wall-muted);
     font-family:
       ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
       monospace;
@@ -209,7 +288,7 @@ const moreRecentUrl = before ? "/wall/" : null;
 
   .empty-state {
     font-style: italic;
-    color: #666;
+    color: var(--wall-muted);
     text-align: center;
     margin: 2rem 0;
   }
@@ -217,12 +296,12 @@ const moreRecentUrl = before ? "/wall/" : null;
   .footer-controls {
     margin-top: 2rem;
     padding-top: 0.85rem;
-    border-top: 1px solid #ececec;
+    border-top: 1px solid var(--wall-divider);
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     font-size: 0.78rem;
-    color: #666;
+    color: var(--wall-muted);
   }
 
   .footer-controls a {
@@ -230,14 +309,10 @@ const moreRecentUrl = before ? "/wall/" : null;
     align-items: center;
     min-height: 1.75rem;
     border-radius: 999px;
-    color: #666;
+    color: inherit;
     line-height: 1;
     padding: 0.35rem 0.55rem;
     text-decoration: none;
-  }
-
-  .footer-controls a:visited {
-    color: #666;
   }
 
   .footer-controls a:hover,
@@ -251,17 +326,9 @@ const moreRecentUrl = before ? "/wall/" : null;
   }
 
   @media (prefers-color-scheme: dark) {
-    .post-item,
-    .footer-controls {
-      border-color: #222;
-    }
-
-    .post-header,
-    .empty-state,
-    .footer-controls,
-    .footer-controls a,
-    .footer-controls a:visited {
-      color: #888;
+    .wall {
+      --wall-muted: #888;
+      --wall-divider: #222;
     }
 
     .footer-controls a:hover,

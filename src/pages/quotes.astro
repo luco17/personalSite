@@ -10,7 +10,9 @@ const quotes = (await getCollection("quotes")).sort(
 
 <Layout title="LOD - Quotes" description="Quotes worth keeping.">
   <main id="main-content" tabindex="-1">
-    <h1>Quotes</h1>
+    <header class="page-heading">
+      <h1>Quotes</h1>
+    </header>
     <hr />
     {
       quotes.map((quote) => (
