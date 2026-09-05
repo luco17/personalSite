@@ -1,14 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { env } from "cloudflare:workers";
-
-type WallPost = {
-  id: number;
-  content: string;
-  created_at: string;
-};
-
-const pageSize = 50;
+import { getCollection } from "astro:content";
+import {
+  parseWallCursor,
+  savedLink,
+  wallCursorUrl,
+  wallPage,
+  wallPageSize,
+  wallPostsQuery,
+  type WallNote,
+} from "@/lib/wall";
 
 const parseCreatedAt = (value: string) => {
   const isoValue = value.includes("T") ? value : `${value.replace(" ", "T")}Z`;
@@ -36,17 +38,6 @@ const formatDate = (value: string) => {
 
 const dateTimeAttribute = (value: string) => parseCreatedAt(value)?.toISOString();
 
-const parseBefore = (value: string | null) => {
-  if (!value) return null;
-
-  const date = parseCreatedAt(value);
-  if (!date) return null;
-
-  return value.includes("T")
-    ? date.toISOString().replace("T", " ").slice(0, 19)
-    : value;
-};
-
 const escapeHtml = (value: string) =>
   value
     .replaceAll("&", "&amp;")
@@ -64,14 +55,6 @@ const linkify = (value: string) =>
     return `<a href="${href}">${href}</a>${punctuation}`;
   });
 
-const wallPostsQuery = `
-  SELECT id, content, created_at
-  FROM entries
-  WHERE hidden_at IS NULL AND (? IS NULL OR created_at < ?)
-  ORDER BY created_at DESC
-  LIMIT ?
-`;
-
 export const prerender = false;
 
 Astro.response.headers.set(
@@ -79,32 +62,55 @@ Astro.response.headers.set(
   "public, max-age=30, stale-while-revalidate=300",
 );
 
-const before = parseBefore(Astro.url.searchParams.get("before"));
-let posts: WallPost[] = [];
+const before = parseWallCursor(Astro.url.searchParams);
+if (Astro.url.searchParams.has("before") && !before) {
+  return Astro.redirect("/wall/", 302);
+}
+const links = (await getCollection("links")).map(savedLink);
+let notes: WallNote[] = [];
 let errorMsg = "";
 
 try {
   const { results } = await env.pensieve_db
     .prepare(wallPostsQuery)
-    .bind(before, before, pageSize)
-    .all<WallPost>();
+    .bind(
+      before?.created_at ?? null,
+      before?.created_at ?? null,
+      before?.created_at ?? null,
+      before?.id ?? null,
+      wallPageSize + 1,
+    )
+    .all<WallNote>();
 
-  posts = results;
+  notes = results;
 } catch (error: unknown) {
   console.error("Wall entries could not be loaded", error);
-  errorMsg = "The wall is temporarily unavailable.";
+  errorMsg = "Notes are temporarily unavailable. Saved links are shown below; please try again shortly.";
+  Astro.response.status = 503;
+  Astro.response.headers.set("Cache-Control", "no-store");
+  Astro.response.headers.set("Retry-After", "60");
 }
 
-const oldestPost = posts.at(-1);
-const olderUrl = oldestPost
-  ? `/wall?before=${encodeURIComponent(oldestPost.created_at)}`
-  : null;
-const moreRecentUrl = before ? "/wall" : null;
+const { entries, hasMore } = wallPage(notes, links, before);
+const oldestEntry = entries.at(-1);
+const olderUrl = !errorMsg && hasMore && oldestEntry ? wallCursorUrl(oldestEntry) : null;
+const moreRecentUrl = before ? "/wall/" : null;
+const monthLabel = (month: string) =>
+  new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
 ---
 
-<Layout title="LOD - Wall" description="Recent notes and clips.">
-  <main class="wall">
+<Layout
+  title="LOD - Wall"
+  description="Notes, clips and links worth keeping."
+  canonicalPath={before ? wallCursorUrl(before) : "/wall/"}
+>
+  <main class="wall" id="main-content" tabindex="-1">
     <h1>Wall</h1>
+    <p class="wall-intro">Notes, clips and links worth keeping. Older saved links are dated to the month I found them.</p>
     <hr />
 
     {errorMsg && (
@@ -113,20 +119,28 @@ const moreRecentUrl = before ? "/wall" : null;
       </div>
     )}
 
-    {!errorMsg && posts.length === 0 && (
-      <p class="empty-state">No notes yet.</p>
+    {!errorMsg && entries.length === 0 && (
+      <p class="empty-state">Nothing here yet.</p>
     )}
 
-    {!errorMsg && posts.length > 0 && (
+    {entries.length > 0 && (
       <div class="stack">
-        {posts.map((post) => (
-          <article class="post-item">
+        {entries.map((entry) => (
+          <article class="post-item" id={"url" in entry ? `link-${-entry.id}` : `note-${entry.id}`}>
             <div class="post-header">
-              <time class="post-date" datetime={dateTimeAttribute(post.created_at)}>
-                {formatDate(post.created_at)}
-              </time>
+              {"url" in entry ? (
+                <><time class="post-date" datetime={entry.month}>{monthLabel(entry.month)}</time><span> · Link</span></>
+              ) : (
+                <time class="post-date" datetime={dateTimeAttribute(entry.created_at)}>
+                  {formatDate(entry.created_at)}
+                </time>
+              )}
             </div>
-            <div class="post-body" set:html={linkify(post.content)} />
+            {"url" in entry ? (
+              <p class="post-body saved-link"><a href={entry.url}>{entry.title}</a></p>
+            ) : (
+              <div class="post-body" set:html={linkify(entry.content)} />
+            )}
           </article>
         ))}
       </div>
@@ -134,10 +148,16 @@ const moreRecentUrl = before ? "/wall" : null;
 
     <footer class="footer-controls">
       {moreRecentUrl && (
-        <a class="wall-page-link" href={moreRecentUrl}>&larr; More recent</a>
+        <a class="wall-page-link group" href={moreRecentUrl}>
+          <span class="animate-arrow-spring" aria-hidden="true">&larr;</span>
+          More recent
+        </a>
       )}
       {olderUrl && (
-        <a class="wall-page-link older-link" href={olderUrl}>Older &rarr;</a>
+        <a class="wall-page-link older-link group" href={olderUrl}>
+          Older
+          <span class="animate-arrow-spring arrow-right" aria-hidden="true">&rarr;</span>
+        </a>
       )}
     </footer>
   </main>
@@ -151,6 +171,14 @@ const moreRecentUrl = before ? "/wall" : null;
 
   h1 {
     font-weight: 600;
+  }
+
+  .wall-intro {
+    line-height: 1.5;
+  }
+
+  .saved-link {
+    margin: 0;
   }
 
   .stack {
@@ -172,7 +200,7 @@ const moreRecentUrl = before ? "/wall" : null;
   }
 
   .post-header {
-    color: #777;
+    color: #666;
     font-family:
       ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
       monospace;
@@ -182,6 +210,7 @@ const moreRecentUrl = before ? "/wall" : null;
 
   .post-body {
     white-space: pre-wrap;
+    overflow-wrap: anywhere;
     line-height: 1.45;
   }
 
@@ -201,7 +230,7 @@ const moreRecentUrl = before ? "/wall" : null;
 
   .empty-state {
     font-style: italic;
-    color: var(--muted);
+    color: #666;
     text-align: center;
     margin: 2rem 0;
   }
@@ -214,22 +243,26 @@ const moreRecentUrl = before ? "/wall" : null;
     justify-content: space-between;
     gap: 1rem;
     font-size: 0.78rem;
-    color: #777;
+    color: #666;
   }
 
   .footer-controls a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.75rem;
     border-radius: 999px;
-    color: #777;
+    color: #666;
     line-height: 1;
     padding: 0.35rem 0.55rem;
     text-decoration: none;
   }
 
   .footer-controls a:visited {
-    color: #777;
+    color: #666;
   }
 
-  .footer-controls a:hover {
+  .footer-controls a:hover,
+  .footer-controls a:focus-visible {
     background: #f6f6f6;
     color: #111;
   }
@@ -245,13 +278,15 @@ const moreRecentUrl = before ? "/wall" : null;
     }
 
     .post-header,
+    .empty-state,
     .footer-controls,
     .footer-controls a,
     .footer-controls a:visited {
       color: #888;
     }
 
-    .footer-controls a:hover {
+    .footer-controls a:hover,
+    .footer-controls a:focus-visible {
       background: #1b1b1b;
       color: #fff;
     }

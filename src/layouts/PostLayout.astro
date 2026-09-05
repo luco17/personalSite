@@ -3,27 +3,36 @@ import Layout from "@/layouts/Layout.astro";
 
 interface Props {
   title: string;
-  description?: string;
-  byline: string;
+  description?: string | null;
+  byline?: string;
+  date?: Date;
   backHref: string;
   backLabel: string;
 }
 
-const { title, description, byline, backHref, backLabel } = Astro.props;
+const { title, description = null, byline, date, backHref, backLabel } = Astro.props;
+const formattedDate = date?.toLocaleDateString("en-GB", {
+  day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+});
 ---
 
-<Layout title={title} description={description} type="article">
-  <main>
+<Layout title={title} description={description} type="article" publishedDate={date}>
+  <main id="main-content" tabindex="-1">
     <p>
       <a href={backHref} class="group">
-        <span class="animate-arrow-spring">&larr;</span>
+        <span class="animate-arrow-spring" aria-hidden="true">&larr;</span>
         {backLabel}
       </a>
     </p>
-    <h1>{title}</h1>
-    <p>{byline}</p>
-    <hr />
-    <slot />
+    <article>
+      <header>
+        <h1>{title}</h1>
+        {byline && <p>{byline}</p>}
+        {date && <p><time datetime={date.toISOString().slice(0, 10)}>{formattedDate}</time></p>}
+      </header>
+      <hr />
+      <slot />
+    </article>
   </main>
 </Layout>
 

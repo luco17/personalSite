@@ -7,7 +7,7 @@ link: true
 
 Perspectives of 7 philosophers from 7 ages, starting with Socrates and ending with Nieztche. Each chapter is structured around a shortcoming and the philosophy that can help you make peace with it.
 
-### 1. Consolation for unpopularity
+## 1. Consolation for unpopularity
 
 Examines the life and teachings of Socrates, who was condemned to death by a jury for practicing philosophy. He is unyielding and greets his fate with equanimity.
 
@@ -29,7 +29,7 @@ We seem afflicted by a tendency "to listen to everyone, to be upset by every unk
 
 _"True respectability stems not from the will of the majority but from proper reasoning. When we are making a ship, it is the verdict of those who construct triremes that should worry us."_
 
-### 2. Consolation for not having enough money
+## 2. Consolation for not having enough money
 
 Focused on Epicurus who thought a simple life lived among friends was more valuable than riches.
 
@@ -66,7 +66,7 @@ _"Advertising would not be so prevalent if we were not such suggestible creature
 
 _"Mankind is perpetually the victim of a pointless and futile martyrdom, fretting life away in fruitless worries through failure to realise what limit is set to acquisition and to the growth of genuine pleasure. It is this discontent that has driven life steadily onward, out to the high seas."_
 
-### 3. Consolation for frustration
+## 3. Consolation for frustration
 
 Focused on Seneca, who was put to death on a whim by Nero in AD 65. He had from the first conceived of philosophy as a discipline to assist humans in overcoming conflicts between their wishes and reality.
 
@@ -94,7 +94,7 @@ _"We should place a fireguard between the noise outside and an internal sense of
 
 _"We may be powerless to alter certain events, but we remain free to choose our attitude towards them, and it is in our spontaneous acceptance of necessity that we find our distinctive freedom."_
 
-### 4. Consolation for inadequacy
+## 4. Consolation for inadequacy
 
 Focused on Montaigne.
 
@@ -116,11 +116,11 @@ _"It is a deleterious impulse to think that the truth always has to lie far from
 
 _"It is tempting to quote authors when they express our very own thoughts but with a clarity and psychological accuracy we cannot match. They know us better than we know ourselves. What is shy and confused in us is succintly and elegantly phrased in them."_
 
-### 5. Consolation for a broken heart
+## 5. Consolation for a broken heart
 
 Focused on Arthur Schopenhauer. Didn't pick up much from this chapter.
 
-### 6. Consolation for difficulties
+## 6. Consolation for difficulties
 
 Focused on Nieztche.
 

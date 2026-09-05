@@ -9,6 +9,8 @@
     }
   },
   "include": [
-    "./worker-configuration.d.ts"
-  ]
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": ["dist"]
 }

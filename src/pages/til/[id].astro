@@ -16,8 +16,9 @@ const { Content } = await render(item);
 
 <PostLayout
   title={item.data.title}
-  byline={item.data.date.toDateString()}
-  backHref="/til"
+  description={item.data.description}
+  date={item.data.date}
+  backHref="/til/"
   backLabel="Back to TIL"
 >
   <Content />

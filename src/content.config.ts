@@ -1,4 +1,5 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob, file } from "astro/loaders";
 
 const books = defineCollection({
@@ -26,6 +27,7 @@ const til = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.date(),
+    description: z.string().optional(),
   }),
 });
 
@@ -41,8 +43,8 @@ const links = defineCollection({
   loader: file("src/data/links.yaml"),
   schema: z.object({
     title: z.string(),
-    url: z.string().url(),
-    month: z.string().regex(/^\d{4}-\d{2}$/),
+    url: z.url(),
+    month: z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/),
   }),
 });
 
