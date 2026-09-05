@@ -39,13 +39,4 @@ const quotes = defineCollection({
   }),
 });
 
-const links = defineCollection({
-  loader: file("src/data/links.yaml"),
-  schema: z.object({
-    title: z.string(),
-    url: z.url(),
-    month: z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/),
-  }),
-});
-
-export const collections = { books, posts, til, quotes, links };
+export const collections = { books, posts, til, quotes };

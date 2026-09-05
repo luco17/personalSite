@@ -16,7 +16,6 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 - `src/content/posts/`: post content
 - `src/content/books/`: book notes
 - `src/content/til/`: TIL notes
-- `src/data/links.yaml`: saved links (merged into `src/pages/wall.astro`)
 - `src/data/quotes.yaml`: quotes data (rendered by `src/pages/quotes.astro`)
 - `src/content.config.ts`: content collection schemas
 
@@ -27,15 +26,10 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 - Keep copy concise and direct.
 - **TILs/Notes Style**: Keep drafts punchy, direct, and conversational. Ground them in real-world context. Avoid formal headers/bullet lists unless requested.
 
-## Links
+## Wall
 
-- Add new links to `src/data/links.yaml`.
-- Append the entry at the end of the file with:
-  - `id`: highest existing id plus one
-  - `title`: link text
-  - `url`: the link
-  - `month`: the request month as `"YYYY-MM"`
-- The Wall merges saved links with notes before pagination. Links retain month-only dates and render in id order within each month; the month start is only an internal sorting key, not an exact discovery date.
+- Notes and saved links are ordinary entries in the `pensieve-db` D1 database.
+- Store saved links as the title and URL in the entry content.
 
 ## Quotes
 

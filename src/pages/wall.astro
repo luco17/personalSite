@@ -1,12 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { env } from "cloudflare:workers";
-import { getCollection } from "astro:content";
 import {
   parseWallCursor,
-  savedLink,
   wallCursorUrl,
-  wallPage,
   wallPageSize,
   wallPostsQuery,
   type WallNote,
@@ -66,7 +63,6 @@ const before = parseWallCursor(Astro.url.searchParams);
 if (Astro.url.searchParams.has("before") && !before) {
   return Astro.redirect("/wall/", 302);
 }
-const links = (await getCollection("links")).map(savedLink);
 let notes: WallNote[] = [];
 let errorMsg = "";
 
@@ -85,22 +81,17 @@ try {
   notes = results;
 } catch (error: unknown) {
   console.error("Wall entries could not be loaded", error);
-  errorMsg = "Notes are temporarily unavailable. Saved links are shown below; please try again shortly.";
+  errorMsg = "Notes are temporarily unavailable; please try again shortly.";
   Astro.response.status = 503;
   Astro.response.headers.set("Cache-Control", "no-store");
   Astro.response.headers.set("Retry-After", "60");
 }
 
-const { entries, hasMore } = wallPage(notes, links, before);
+const hasMore = notes.length > wallPageSize;
+const entries = notes.slice(0, wallPageSize);
 const oldestEntry = entries.at(-1);
 const olderUrl = !errorMsg && hasMore && oldestEntry ? wallCursorUrl(oldestEntry) : null;
 const moreRecentUrl = before ? "/wall/" : null;
-const monthLabel = (month: string) =>
-  new Date(`${month}-01T00:00:00Z`).toLocaleDateString("en-GB", {
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
 ---
 
 <Layout
@@ -110,7 +101,7 @@ const monthLabel = (month: string) =>
 >
   <main class="wall" id="main-content" tabindex="-1">
     <h1>Wall</h1>
-    <p class="wall-intro">Notes, clips and links worth keeping. Older saved links are dated to the month I found them.</p>
+    <p class="wall-intro">Notes, clips and links worth keeping.</p>
     <hr />
 
     {errorMsg && (
@@ -126,21 +117,13 @@ const monthLabel = (month: string) =>
     {entries.length > 0 && (
       <div class="stack">
         {entries.map((entry) => (
-          <article class="post-item" id={"url" in entry ? `link-${-entry.id}` : `note-${entry.id}`}>
+          <article class="post-item" id={`note-${entry.id}`}>
             <div class="post-header">
-              {"url" in entry ? (
-                <><time class="post-date" datetime={entry.month}>{monthLabel(entry.month)}</time><span> · Link</span></>
-              ) : (
-                <time class="post-date" datetime={dateTimeAttribute(entry.created_at)}>
-                  {formatDate(entry.created_at)}
-                </time>
-              )}
+              <time class="post-date" datetime={dateTimeAttribute(entry.created_at)}>
+                {formatDate(entry.created_at)}
+              </time>
             </div>
-            {"url" in entry ? (
-              <p class="post-body saved-link"><a href={entry.url}>{entry.title}</a></p>
-            ) : (
-              <div class="post-body" set:html={linkify(entry.content)} />
-            )}
+            <div class="post-body" set:html={linkify(entry.content)} />
           </article>
         ))}
       </div>
@@ -175,10 +158,6 @@ const monthLabel = (month: string) =>
 
   .wall-intro {
     line-height: 1.5;
-  }
-
-  .saved-link {
-    margin: 0;
   }
 
   .stack {
