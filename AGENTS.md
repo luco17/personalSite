@@ -36,7 +36,6 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
   - `url`: the link
   - `month`: the request month as `"YYYY-MM"`
 - The Wall merges saved links with notes before pagination. Links retain month-only dates and render in id order within each month; the month start is only an internal sorting key, not an exact discovery date.
-- Keep historical links in YAML; do not copy them into D1. `/links` redirects to `/wall` for existing bookmarks.
 
 ## Quotes
 
