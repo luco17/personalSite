@@ -7,6 +7,8 @@ MECE: mutually exclusive, collectively exhaustive. Give each prompt section a di
 
 This outline comes from [Wulfie Bain's X post on writing better prompts](https://x.com/wulfie_bain_/status/2098060386813566990):
 
+§
+
 ## Background
 
 Outlines the background for the agent.
@@ -30,3 +32,5 @@ Only touches *output* behaviour.
 
 - **Output format** — e.g. specifying we want Markdown, no bullet points.
 - **Output rules** — e.g. never mentioning competitors X, Y, Z.
+
+§
