@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import meme from "@/assets/sandboxed-agent.webp";
+---
+
+<Layout title="We've sandboxed the agent" description={null} noindex>
+  <main id="main-content" tabindex="-1">
+    <Image
+      src={meme}
+      priority
+      widths={[544, 1088]}
+      sizes="(max-width: 576px) calc(100vw - 32px), 544px"
+      alt="Meme: ‘we’ve sandboxed the agent’. Below ‘the agent:’, a group in sunglasses parties with drinks."
+    />
+  </main>
+</Layout>
+
+<style>
+  img {
+    display: block;
+    width: min(100%, 34rem);
+    height: auto;
+    margin-inline: auto;
+  }
+</style>
