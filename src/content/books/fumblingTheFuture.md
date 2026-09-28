@@ -2,6 +2,7 @@
 title: "Fumbling the Future"
 author: "Douglas K. Smith and Robert C. Alexander"
 date: 2026-08-04
+link: true
 ---
 
 1. I always thought that IBM was rubbish at marketing, mostly because of Steve Jobs' propaganda. The story of them marketing their PC makes me think otherwise: "If the Charlie Chaplin Trump could own a PC, the machine must be affordable. If he could operate one, the technology must be accessible. If he could use a computer to better himself commercially and yes even romantically, then it must be useful."
