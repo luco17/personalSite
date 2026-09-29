@@ -10,6 +10,9 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
   },
+  experimental: {
+    clientPrerender: true,
+  },
   integrations: [sitemap({
     filter: (page) => !['/links/', '/meme/'].includes(new URL(page).pathname),
   })],
