@@ -7,6 +7,9 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://lcod.uk',
   prefetch: true,
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [sitemap({
     filter: (page) => !['/links/', '/meme/'].includes(new URL(page).pathname),
   })],
