@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "npm run generate-types && astro check && astro build",
+    "build": "npm run generate-types && astro check && astro build && node scripts/write-build-info.mjs",
+    "deploy": "node scripts/deploy.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types",
