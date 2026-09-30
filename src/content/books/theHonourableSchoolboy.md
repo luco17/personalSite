@@ -2,6 +2,7 @@
 title: "The Honourable Schoolboy"
 author: "John le Carré"
 date: 2026-08-25
+link: true
 ---
 
 1. “And still the burrowers toiled… they had the map, they had the directions, but there were still mountains to be moved in spoonfuls”
