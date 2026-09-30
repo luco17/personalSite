@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import test from 'node:test';
-import { deployAndNotify } from './deploy.mjs';
+import { deployAndNotify, validateDeploySource } from './deploy.mjs';
 
 const hookUrl = 'https://api.cloudflare.com/client/v4/workers/builds/deploy_hooks/test-secret';
 const success = () => Response.json({ success: true, result: { build_uuid: 'test-build' } });
@@ -86,4 +90,50 @@ test('unexpected hook hosts are rejected without requesting or exposing them', a
     deploy: async () => {}, hookUrl: 'https://example.com/secret',
     fetchImpl: async () => { assert.fail('Unexpected host must not be requested'); },
   }), (error) => !error.message.includes('example.com') && /not a valid Cloudflare/.test(error.message));
+});
+
+async function sourceFixture(t) {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'personal-site-deploy-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+  git(['init', '--quiet']);
+  await writeFile(path.join(root, '.gitignore'), 'dist/\n');
+  await writeFile(path.join(root, 'post.md'), 'Published post\n');
+  git(['add', '.']);
+  git(['-c', 'user.name=Deployment test', '-c', 'user.email=deployment@example.test', 'commit', '--quiet', '-m', 'Initial source']);
+  const [commit, date] = git(['show', '-s', '--format=%H%n%cI', 'HEAD']).split('\n');
+  const info = { schemaVersion: 1, commit, committedAt: new Date(date).toISOString() };
+  const output = path.join(root, 'dist/client');
+  await mkdir(output, { recursive: true });
+  await writeFile(path.join(output, 'build-info.json'), JSON.stringify(info));
+  return { root, info, output };
+}
+
+test('production deployment accepts a clean source commit and ignores generated build files', async (t) => {
+  const { root, info, output } = await sourceFixture(t);
+  await writeFile(path.join(output, 'index.html'), '<h1>Generated HTML</h1>');
+  assert.deepEqual(await validateDeploySource({ root }), info);
+});
+
+test('production deployment rejects both edited tracked sources and untracked sources', async (t) => {
+  const { root } = await sourceFixture(t);
+  await writeFile(path.join(root, 'post.md'), 'Uncommitted edited post\n');
+  await assert.rejects(validateDeploySource({ root }), /uncommitted source changes/);
+  await writeFile(path.join(root, 'post.md'), 'Published post\n');
+  await writeFile(path.join(root, 'new-post.md'), 'Uncommitted new post\n');
+  await assert.rejects(validateDeploySource({ root }), /uncommitted source changes/);
+});
+
+test('production deployment rejects an old build even when the checkout is clean', async (t) => {
+  const { root, info, output } = await sourceFixture(t);
+  await writeFile(path.join(output, 'build-info.json'), JSON.stringify({ ...info, commit: '0'.repeat(40) }));
+  await assert.rejects(validateDeploySource({ root }), /build does not match/);
+});
+
+test('production deployment requires valid build metadata', async (t) => {
+  const { root, output } = await sourceFixture(t);
+  await writeFile(path.join(output, 'build-info.json'), '{}');
+  await assert.rejects(validateDeploySource({ root }), /metadata is missing or invalid/);
+  await rm(path.join(output, 'build-info.json'));
+  await assert.rejects(validateDeploySource({ root }), /metadata is missing or invalid/);
 });

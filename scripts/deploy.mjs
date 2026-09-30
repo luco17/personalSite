@@ -1,14 +1,38 @@
-import { spawnSync } from 'node:child_process';
-import { access } from 'node:fs/promises';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { setTimeout } from 'node:timers/promises';
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url));
 
+export async function validateDeploySource({ root = projectRoot } = {}) {
+  let info;
+  try {
+    info = JSON.parse(await readFile(resolve(root, 'dist/client/build-info.json'), 'utf8'));
+  } catch {
+    throw new Error('Build metadata is missing or invalid. Run npm run build before deploying.');
+  }
+  if (info?.schemaVersion !== 1 || !/^[a-f0-9]{40}$/.test(info.commit ?? '') ||
+      typeof info.committedAt !== 'string' || !Number.isFinite(Date.parse(info.committedAt))) {
+    throw new Error('Build metadata is missing or invalid. Run npm run build before deploying.');
+  }
+  const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+  if (git(['status', '--porcelain', '--untracked-files=all'])) {
+    throw new Error('Commit or remove uncommitted source changes, then rebuild before deploying. Blaze must be able to fetch the exact published revision.');
+  }
+  const [commit, committedAt] = git(['show', '-s', '--format=%H%n%cI', 'HEAD']).split('\n');
+  if (info.commit !== commit || Date.parse(info.committedAt) !== Date.parse(committedAt)) {
+    throw new Error('The build does not match the current source commit. Run npm run build before deploying.');
+  }
+  return info;
+}
+
 async function deploySite() {
+  // A production deploy must be reproducible from Git. Ordinary local builds
+  // remain available with uncommitted changes; this guard runs only on deploy.
+  await validateDeploySource();
   // Use the adapter's generated Worker configuration, never the source config.
-  await access(resolve(projectRoot, 'dist/client/build-info.json'));
   const result = spawnSync(process.execPath, [
     resolve(projectRoot, 'node_modules/wrangler/bin/wrangler.js'),
     'deploy', '--config', 'dist/server/wrangler.json',
