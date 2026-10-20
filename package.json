@@ -14,15 +14,18 @@
     "d1:pull:local": "node ./scripts/pull-local-d1-from-remote.mjs --config ./wrangler.jsonc --persist-to ./.wrangler/state --database pensieve-db"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/cloudflare": "^14.3.2",
+    "@astrojs/check": "^0.9.11",
+    "@astrojs/cloudflare": "^14.4.1",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.3",
+    "astro": "^7.4.1",
     "typescript": "^6.0.3",
     "wrangler": "^4.123.0"
   },
   "devDependencies": {
     "prettier": "^3.9.6"
+  },
+  "engines": {
+    "node": ">=22.22.0"
   }
 }
