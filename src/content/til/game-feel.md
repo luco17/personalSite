@@ -32,3 +32,5 @@ The progression, with a few steps grouped together:
 23. Add death, a game-over state and slow motion.
 
 See the [before-and-after at 29:54](https://www.youtube.com/watch?v=AJdEqssNZ-U&t=1794s).
+
+Wanted to see for myself, so got Astra on the case. [Have a play with Foxfire](https://foxfire.pages.dev/).
