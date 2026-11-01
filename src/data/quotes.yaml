@@ -155,3 +155,9 @@
 - id: 32
   text: '"Not wanting something is as good as having it."'
   attribution: Naval
+- id: 33
+  text: >-
+    "You will seldom hear an exec at any company say 'stop collaborating', to me that's a warning
+    sign. Collaboration comes with incredible coordination costs. Coordination costs ensure that
+    you're moving as slow as the slowest node in the system."
+  attribution: Peter Sellis
