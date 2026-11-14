@@ -2,12 +2,17 @@
 import Layout from "@/layouts/Layout.astro";
 import { env } from "cloudflare:workers";
 import {
+  compareWallItems,
+  isBeforeCursor,
   parseWallCursor,
+  wallSiteEntryLabel,
   wallUrl,
   wallPageSize,
   wallPostsQuery,
+  type WallItem,
   type WallNote,
 } from "@/lib/wall";
+import { loadWallSiteEntries } from "@/lib/wallFeed";
 
 const parseCreatedAt = (value: string) => {
   const isoValue = value.includes("T") ? value : `${value.replace(" ", "T")}Z`;
@@ -32,6 +37,14 @@ const formatDate = (value: string) => {
   });
   return `${formattedDate}, ${formattedTime}`;
 };
+
+const formatDay = (value: string) =>
+  parseCreatedAt(value)?.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }) ?? value;
 
 const dateTimeAttribute = (value: string) => parseCreatedAt(value)?.toISOString();
 
@@ -66,6 +79,7 @@ if (Astro.url.searchParams.has("before") && !before) {
 }
 let notes: WallNote[] = [];
 let errorMsg = "";
+const siteEntriesPromise = loadWallSiteEntries(Astro.url);
 
 try {
   const { results } = await env.pensieve_db
@@ -89,8 +103,25 @@ try {
   Astro.response.headers.set("Retry-After", "60");
 }
 
-const hasMore = notes.length > wallPageSize;
-const entries = notes.slice(0, wallPageSize);
+// Both sources are sorted newest first; taking a page plus one from each keeps the merge exact.
+const lowerQuery = query.toLowerCase();
+const siteItems: WallItem[] = errorMsg
+  ? []
+  : (await siteEntriesPromise)
+      .filter(
+        (entry) =>
+          isBeforeCursor(entry, before) &&
+          entry.title.toLowerCase().includes(lowerQuery),
+      )
+      .slice(0, wallPageSize + 1)
+      .map((entry) => ({ type: "site", ...entry }));
+const items: WallItem[] = [
+  ...notes.map((note): WallItem => ({ type: "note", ...note })),
+  ...siteItems,
+].sort(compareWallItems);
+
+const hasMore = items.length > wallPageSize;
+const entries = items.slice(0, wallPageSize);
 const oldestEntry = entries.at(-1);
 const olderUrl = !errorMsg && hasMore && oldestEntry ? wallUrl(oldestEntry, query) : null;
 const moreRecentUrl = before ? wallUrl(null, query) : null;
@@ -130,16 +161,30 @@ const moreRecentUrl = before ? wallUrl(null, query) : null;
 
     {entries.length > 0 && (
       <div class="stack">
-        {entries.map((entry) => (
-          <article class="post-item" id={`note-${entry.id}`}>
-            <div class="post-header">
-              <time class="post-date" datetime={dateTimeAttribute(entry.created_at)}>
-                {formatDate(entry.created_at)}
-              </time>
-            </div>
-            <div class="post-body" set:html={linkify(entry.content)} />
-          </article>
-        ))}
+        {entries.map((entry) =>
+          entry.type === "note" ? (
+            <article class="post-item" id={`note-${entry.id}`}>
+              <div class="post-header">
+                <time class="post-date" datetime={dateTimeAttribute(entry.created_at)}>
+                  {formatDate(entry.created_at)}
+                </time>
+              </div>
+              <div class="post-body" set:html={linkify(entry.content)} />
+            </article>
+          ) : (
+            <article class="post-item site-entry">
+              <div class="post-header">
+                <time class="post-date" datetime={entry.created_at.slice(0, 10)}>
+                  {formatDay(entry.created_at)}
+                </time>
+              </div>
+              <div class="post-body">
+                {wallSiteEntryLabel(entry)}{" "}
+                {entry.href ? <a href={entry.href}>{entry.title}</a> : entry.title}
+              </div>
+            </article>
+          ),
+        )}
       </div>
     )}
 

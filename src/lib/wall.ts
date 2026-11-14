@@ -55,3 +55,47 @@ export const wallUrl = (entry: WallCursor | null = null, query = "") => {
   }
   return params.size ? `/wall/?${params}` : "/wall/";
 };
+
+export type WallSiteEntry = {
+  id: number;
+  kind: "post" | "til" | "book";
+  title: string;
+  href: string | null;
+  created_at: string;
+};
+
+export type WallItem =
+  | ({ type: "note" } & WallNote)
+  | ({ type: "site" } & WallSiteEntry);
+
+// Built at build time by src/pages/wall-feed.json.ts, so the Worker never bundles content bodies.
+export const wallFeedPath = "/wall-feed.json";
+
+const kindLabels: Record<WallSiteEntry["kind"], string> = {
+  post: "post",
+  til: "TIL",
+  book: "book",
+};
+
+export const wallSiteEntryLabel = (entry: WallSiteEntry) =>
+  `Added new ${kindLabels[entry.kind]}:`;
+
+// Stable negative IDs keep site entries apart from D1 IDs in the pagination cursor.
+export const wallSiteEntryId = (key: string) => {
+  let hash = 0x811c9dc5;
+  for (const char of key) {
+    hash ^= char.codePointAt(0)!;
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return -((hash >>> 0) % 0x7fffffff) - 1;
+};
+
+export const compareWallItems = (a: WallCursor, b: WallCursor) =>
+  a.created_at === b.created_at
+    ? b.id - a.id
+    : a.created_at < b.created_at
+      ? 1
+      : -1;
+
+export const isBeforeCursor = (item: WallCursor, cursor: WallCursor | null) =>
+  !cursor || compareWallItems(cursor, item) < 0;

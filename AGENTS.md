@@ -30,6 +30,7 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 
 - Notes and saved links are ordinary entries in the `pensieve-db` D1 database.
 - Store saved links as the title and URL in the entry content.
+- Posts, TILs and books appear on the wall automatically as "Added new …" entries, using their frontmatter date. They come from `src/pages/wall-feed.json.ts`, built at build time; nothing is written to D1.
 
 ## Quotes
 
