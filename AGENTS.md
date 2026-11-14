@@ -19,6 +19,10 @@ The site is intentionally simple: mostly static pages, plain HTML, and CSS.
 - `src/data/quotes.yaml`: quotes data (rendered by `src/pages/quotes.astro`)
 - `src/content.config.ts`: content collection schemas
 
+## Deployment
+
+- Pushing to `main` deploys `lcod.uk` via Cloudflare Workers Builds; see `README.md` for details.
+
 ## Content Rules
 
 - Use the current request date by default unless told otherwise.
