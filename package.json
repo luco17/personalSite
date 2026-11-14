@@ -14,16 +14,16 @@
     "d1:pull:local": "node ./scripts/pull-local-d1-from-remote.mjs --config ./wrangler.jsonc --persist-to ./.wrangler/state --database pensieve-db"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.11",
-    "@astrojs/cloudflare": "^14.4.1",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/cloudflare": "^14.4.8",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.4.1",
+    "@astrojs/sitemap": "^3.7.5",
+    "astro": "^7.4.12",
     "typescript": "^6.0.3",
-    "wrangler": "^4.123.0"
+    "wrangler": "^4.162.0"
   },
   "devDependencies": {
-    "prettier": "^3.9.6"
+    "prettier": "^3.10.1"
   },
   "engines": {
     "node": ">=22.22.0"
