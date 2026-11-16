@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 452" class="ent-svg" font-family="system-ui, sans-serif">
+  <title>Where each piece of entrain runs</title>
+  <style>
+    .ent-svg { --ent-zone: #fafaf9; --ent-box: #ffffff; --ent-line: #c4c4be; --ent-ink: #1b1b1a; --ent-mute: #6a6a64; --ent-acc: #0f766e; --ent-tint: rgba(15, 118, 110, 0.06); }
+    @media (prefers-color-scheme: dark) {
+      .ent-svg { --ent-zone: #171717; --ent-box: #1e1e1e; --ent-line: #474745; --ent-ink: #f1f1ef; --ent-mute: #a09f99; --ent-acc: #20b2aa; --ent-tint: rgba(32, 178, 170, 0.09); }
+    }
+    .ent-svg .zone { fill: var(--ent-zone); stroke: var(--ent-line); stroke-dasharray: 4 3; }
+    .ent-svg .box { fill: var(--ent-box); stroke: var(--ent-line); }
+    .ent-svg .ext { stroke-dasharray: 3 3; }
+    .ent-svg .harness { fill: var(--ent-box); stroke: var(--ent-acc); }
+    .ent-svg .tint { fill: var(--ent-tint); stroke: none; }
+    .ent-svg .edge { fill: none; stroke: var(--ent-mute); stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 4; }
+    .ent-svg text { fill: var(--ent-ink); }
+    .ent-svg .t, .ent-svg .b, .ent-svg .c { font-family: Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Courier New', monospace; }
+    .ent-svg .t { font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; }
+    .ent-svg .s { font-size: 10px; fill: var(--ent-mute); }
+    .ent-svg .b { font-size: 9px; letter-spacing: 0.12em; fill: var(--ent-mute); }
+    .ent-svg .acc { fill: var(--ent-acc); }
+    .ent-svg .loop { stroke: var(--ent-acc); }
+    .ent-svg .head { stroke-dasharray: none; }
+    .ent-svg .c { font-size: 10px; text-anchor: middle; }
+    @media (prefers-reduced-motion: no-preference) {
+      .ent-svg .flow { animation: ent-flow 1.6s linear infinite; }
+    }
+    @keyframes ent-flow { to { stroke-dashoffset: -10; } }
+  </style>
+
+  <!-- Outside: where the data comes from -->
+  <rect class="box" x="8.500" y="12.500" width="128" height="40" rx="4"/>
+  <text class="t" x="20" y="30">GARMIN CONNECT</text>
+  <text class="s" x="20" y="44">FIT files</text>
+
+  <rect class="box" x="144.500" y="12.500" width="120" height="40" rx="4"/>
+  <text class="t" x="156" y="30">PERSIST PLAN</text>
+  <text class="s" x="156" y="44">weekly PDF</text>
+
+  <rect class="box ext" x="272.500" y="12.500" width="119" height="40" rx="4"/>
+  <text class="t" x="284" y="30">SESHINLOG</text>
+  <text class="s" x="284" y="44">lifts · read in place</text>
+
+  <!-- Cloudflare -->
+  <rect class="zone" x="8.500" y="84.500" width="383" height="240" rx="8"/>
+  <text class="b" x="272" y="104">CLOUDFLARE</text>
+
+  <path class="edge flow" d="M72 53V112"/>
+  <path class="edge flow" d="M204 53V112"/>
+  <path class="edge flow" d="M332 53V68H236V112"/>
+
+  <!-- Harness -->
+  <rect class="harness" x="20.500" y="112.500" width="232" height="198" rx="6"/>
+  <rect class="tint" x="21" y="113" width="231" height="197" rx="6"/>
+  <text class="t" x="32" y="132">AGENT HARNESS</text>
+  <text class="s" x="32" y="146">Worker · Think, Agents SDK</text>
+
+  <rect class="box" x="30.500" y="156.500" width="212" height="92" rx="4"/>
+  <text class="b" x="40" y="171">TOOLS</text>
+  <g>
+    <rect class="box" x="40.500" y="178.500" width="44" height="18" rx="3"/><text class="c" x="62.500" y="191">today</text>
+    <rect class="box" x="90.500" y="178.500" width="92" height="18" rx="3"/><text class="c" x="136.500" y="191">training_days</text>
+    <rect class="box" x="188.500" y="178.500" width="44" height="18" rx="3"/><text class="c" x="210.500" y="191">query</text>
+    <rect class="box" x="44.500" y="200.500" width="86" height="18" rx="3"/><text class="c" x="87.500" y="213">plan_session</text>
+    <rect class="box" x="136.500" y="200.500" width="92" height="18" rx="3"/><text class="c" x="182.500" y="213">activity_laps</text>
+    <rect class="box" x="50.500" y="222.500" width="104" height="18" rx="3"/><text class="c" x="102.500" y="235">activity_series</text>
+    <rect class="box" x="160.500" y="222.500" width="62" height="18" rx="3"/><text class="c" x="191.500" y="235">add_note</text>
+  </g>
+
+  <rect class="box" x="30.500" y="258.500" width="212" height="42" rx="4"/>
+  <text class="b" x="40" y="275">SHARED RULES</text>
+  <text class="s" x="40" y="290">how to read the data</text>
+
+  <!-- Storage and the MCP route, all inside Cloudflare -->
+  <path class="edge" d="M253 144H272"/>
+  <path class="edge" d="M253 196H272"/>
+  <rect class="box" x="272.500" y="124.500" width="108" height="40" rx="4"/>
+  <text class="t" x="283" y="142">D1</text>
+  <text class="s" x="283" y="156">entrain index</text>
+  <rect class="box" x="272.500" y="176.500" width="108" height="40" rx="4"/>
+  <text class="t" x="283" y="194">R2</text>
+  <text class="s" x="283" y="208">FIT files · PDFs</text>
+
+  <path class="edge" d="M253 276H272"/>
+  <rect class="box" x="272.500" y="256.500" width="108" height="40" rx="4"/>
+  <text class="t" x="283" y="274">MCP SERVER</text>
+  <text class="s" x="283" y="288">Access portal</text>
+
+  <!-- Telegram: a message in, a reply out -->
+  <path class="edge flow" d="M58 356V312"/>
+  <path class="edge head" d="M54.500 316.500 58 311.500 61.500 316.500"/>
+  <path class="edge flow" d="M74 311V355"/>
+  <path class="edge head" d="M70.500 350.500 74 355.500 77.500 350.500"/>
+  <rect class="box" x="20.500" y="356.500" width="92" height="40" rx="4"/>
+  <text class="t" x="31" y="374">TELEGRAM</text>
+  <text class="s" x="31" y="388">coach chat</text>
+
+  <!-- The agent loop: model call out, tool calls back, round and round -->
+  <path class="edge loop flow" d="M166 311V355"/>
+  <path class="edge loop head" d="M162.500 350.500 166 355.500 169.500 350.500"/>
+  <path class="edge loop flow" d="M182 356V312"/>
+  <path class="edge loop head" d="M178.500 316.500 182 311.500 185.500 316.500"/>
+  <text class="s acc" x="192" y="344">agent loop</text>
+  <rect class="box ext" x="124.500" y="356.500" width="100" height="40" rx="4"/>
+  <text class="t" x="135" y="374">OPENROUTER</text>
+  <text class="s" x="135" y="388">the model</text>
+
+  <!-- MCP clients connect in from outside -->
+  <path class="edge flow" d="M326 402V297M203 416V402H344V416M266 402V416"/>
+  <rect class="box" x="176.500" y="416.500" width="54" height="24" rx="3"/><text class="c" x="203.500" y="432">Claude</text>
+  <rect class="box" x="236.500" y="416.500" width="60" height="24" rx="3"/><text class="c" x="266.500" y="432">ChatGPT</text>
+  <rect class="box" x="302.500" y="416.500" width="84" height="24" rx="3"/><text class="c" x="344.500" y="432">Claude Code</text>
+</svg>
